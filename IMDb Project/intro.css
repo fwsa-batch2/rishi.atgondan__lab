@@ -1,0 +1,179 @@
+body{
+    background-color: #242421;
+}
+
+.imdb{
+    position: absolute;
+    top: 13px;
+    left: 450px;
+}
+
+.btn1{
+    position: absolute;
+    top: 12px;
+    left: 530px;
+    border: none;
+    color: black;
+    font-size: medium;
+    height: 35px; width: 70px;
+    border-radius: 8px;
+}
+
+
+.btn1:hover{
+    border-radius: 8px;
+    background-color:grey;
+    color: #242421;
+}
+
+.a1{
+    font-size: 15px;
+    text-decoration: none;
+    color: black;
+}
+
+.search input[type=text]{
+    width: 300px;
+    height: 30px;
+    border-radius: 8px;
+    border: none;
+    margin-top: 5px;
+    margin-left: 615px;
+}
+
+::placeholder{
+    padding-left: 100px;
+}
+
+.img1{
+    margin-top: 60px;
+    position: absolute;
+    margin-left: 400px;
+    height: 200px;
+    width: 1000px;    
+}
+
+.h1-1{
+    color: azure;
+    margin-top: 30px;
+    margin-left: 390px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 40px;
+}
+.h1-2{
+    color: #BDBDB8;
+    margin-left: 392px;
+    font-size: small;
+    margin-top: -30px;
+}
+ 
+.grid-container-element{
+    display: grid;  
+}
+
+.container-1{
+    background-color: black;
+    height: 330px;
+    margin-top: 40px;
+}
+
+.h1-3{
+    color: #BDBDB8;
+    margin-left: 1140px;
+    font-size: small;
+    margin-top: -55px;
+    
+}
+ 
+.img-2{
+    height: 35px;
+    width: 35px;
+    margin-left: 1140px;
+    margin-top: -5px;
+    
+}
+
+.h1-4{
+    color: #BDBDB8;
+    margin-left: 1185px;
+    font-size: small;
+    margin-top: -40px;
+    
+}
+.span-1{
+    color: white;
+    font-size:x-large;
+
+}
+
+.h1-5{
+    color: #BDBDB8;
+    font-size:medium;
+    margin-left: 1180px;
+    margin-top: -10px;
+
+}
+
+.h1-6{
+    color:#BDBDB8;
+    margin-left: 1260px;
+    margin-top: -74px;
+    font-size: small;
+}
+
+.img-3{
+    height: 20px;
+    width: 90px;
+    margin-left: 1262px;
+
+}
+
+.h1-7{
+    color: #BDBDB8;
+    font-size:small;
+    margin-left: 1380px;
+    margin-top: -48px;
+}
+
+.img-4{
+    height: 30px;
+    width: 30px;
+    margin-left: 1375px;
+    margin-top: -3px;
+}
+
+.h2-8{
+    color:white ;
+}
+
+.span-2{
+    color:white;
+    font-size:large;
+}
+
+.h2-8{
+    color:#BDBDB8;
+    margin-left: 1408px;
+    margin-top: -30px;
+    font-size:large;
+
+}
+
+.container-2{
+    background-color: #d1d1d131;
+    height: 40px;
+    width: 1080px;
+    margin-left: 388px;
+    margin-top:30px ;
+}
+
+.div-1{
+    color: white;
+    font-size: 17px;
+    margin-left: 900px;
+    margin-top: -30px;
+}
+
+.span-3{
+   margin-left: 10px;
+}
