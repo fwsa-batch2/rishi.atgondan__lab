@@ -1,0 +1,25 @@
+<html>
+
+<body>
+    <script>
+        // JavaScript Program to Split Array into Smaller Chunks
+        function split(arr, chunk) {
+
+            // While loop creates a loop that is executed while a specified condition is true. 
+            while (arr.length > 0) {
+
+                let temp;
+                temp = arr.splice(0, chunk);
+                document.write("<br>")
+                document.write("<br>")
+                document.write(temp);
+            }
+        }
+
+        let array = ["rishi", "is", "a", "good", "boy", 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, "brainy", "is", "a", "pubg", "player"];
+        let chunks = 5;
+        split(array, chunks);
+    </script>
+</body>
+
+</html>

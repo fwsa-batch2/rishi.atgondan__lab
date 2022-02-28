@@ -1,0 +1,41 @@
+<html>
+
+<body>
+    <script>
+        // JavaScript Program to Compare Elements of Two Arrays
+
+
+        function compareElementsOfTwoArr(x, y) {
+            if (x.length != y.length) {
+                return false;
+            }
+            else {
+                let answer;
+                for (i = 0; i < x.length; i++) {
+                    if (x[i] != y[i]) {
+                        answer = false;
+                    }
+                    else {
+                        answer = true;
+                    }
+                }
+                return answer;
+            }
+        }
+
+        let a = ["cricket", "football", "tennis", "basketball"];
+        let b = ["cricket", "football", "tennis", "basketball"];
+
+        let compare = compareElementsOfTwoArr(a, b);
+
+        if (compare) {
+            document.write("two arrays are equal");
+        } else {
+            document.write("two arrays are not equal")
+        }
+
+
+    </script>
+</body>
+
+</html>

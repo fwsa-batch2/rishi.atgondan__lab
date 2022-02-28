@@ -1,0 +1,32 @@
+<html>
+
+<head>
+</head>
+
+<body>
+    <script>
+        // JavaScript Program to Sort Array of Objects by Property Values
+
+        function sortArray_ascendingorder(x, y) {
+            let name1 = x.name;
+            let name2 = y.name;
+
+            if (name1 > name2) {
+                return (1);
+            }
+            else if (name1 < name2) {
+                return (-1);
+            }
+            else if (name1 == name2) {
+                return (0);
+            }
+        }
+        let a = [{ name: "santhanu", roll_no: 1 }, { name: "rishi", roll_no: 2 }, { name: "meenu", roll_no: 3 }, { name: "brainy", roll_no: 4 }]
+
+        console.log(a.sort(sortArray_ascendingorder));
+
+
+    </script>
+</body>
+
+</html>

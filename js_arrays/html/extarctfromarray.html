@@ -1,0 +1,27 @@
+<html>
+
+<body>
+    <script>
+        // JavaScript Program to Extract Given Property Values from Objects as Array
+
+        function extract(arr, property) {
+            let x = [];
+
+            for (i = 0; i < arr.length; i++) {
+                x.push(arr[i][property]);
+            }
+            return x;
+        }
+
+        let list = [{ food: "pizza", cost: 100 }, { food: "briyani", cost: 300 }, { food: "burger", cost: 250 }, { food: "parotta", cost: 80 }]
+
+
+        let answer = extract(list, "food");
+        document.write(answer);
+
+    </script>
+
+
+</body>
+
+</html>
