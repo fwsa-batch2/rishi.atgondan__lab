@@ -1,0 +1,51 @@
+body {
+    background-image: url('../image/calculatebgimg.jpeg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100%;
+
+}
+
+.h1-1 {
+    color: rgb(0, 0, 0);
+    text-align: center;
+    font-size: 50px;
+    margin-left: 34%;
+    margin-top: 4%;
+    text-shadow: 4px 4px 4px black;
+
+
+}
+
+.div-1 {
+    margin-left: 50%;
+    margin-top: -1%;
+}
+
+
+
+.tr, td {
+    border: 5px #000000 solid;
+}
+
+.table {
+    border: 5px #000000 solid;
+    height: 450px;
+    width: 650px;
+    border-radius: 10px;
+    box-shadow: 10px 10px 10px;
+}
+
+
+button {
+    width: 100%;
+    height: 100%;
+    font-size: 30px;
+}
+
+input {
+    font-size: 30px;
+    height: 100%;
+    width: 100%;
+    padding-left: 20px;
+}
