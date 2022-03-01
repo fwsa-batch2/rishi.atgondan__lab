@@ -1,0 +1,83 @@
+mysql> show databases;
++---------------------+
+| Database            |
++---------------------+
+| constraints         |
+| games               |
+| information_schema  |
+| mysql               |
+| performance_schema  |
+| pubg_tournament_app |
+| school              |
+| sys                 |
+| test                |
++---------------------+
+9 rows in set (0.00 sec)
+
+mysql> use school;
+Database changed
+mysql> show tables;
++------------------+
+| Tables_in_school |
++------------------+
+| items            |
+| teachers         |
++------------------+
+2 rows in set (0.00 sec)
+
+mysql> select * from items;
++---------+--------------+-------+---------+---------------+
+| item_no | product_name | price | country | weight_in_kgs |
++---------+--------------+-------+---------+---------------+
+|       1 | Lays         |    20 | INDIA   | 1000          |
+|       2 | Kurkure      |    20 | INDIA   | 5000          |
+|       3 | Bingo        |    10 | INDIA   | 1000          |
+|       4 | Chocos       |    15 | INDIA   | 3000          |
+|       5 | Too yumm     |    30 | INDIA   | 4000          |
+|       6 | Doritos      |    40 | INDIA   | 6000          |
++---------+--------------+-------+---------+---------------+
+6 rows in set (0.00 sec)
+
+mysql> create index i1 on items(product_name);
+Query OK, 0 rows affected (0.45 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+mysql> show index from items;
++-------+------------+--------------+--------------+--------------+-----------+-------------+----------+--------+------+------------+---------+---------------+---------+------------+
+| Table | Non_unique | Key_name     | Seq_in_index | Column_name  | Collation | Cardinality | Sub_part | Packed | Null | Index_type | Comment | Index_comment | Visible | Expression |
++-------+------------+--------------+--------------+--------------+-----------+-------------+----------+--------+------+------------+---------+---------------+---------+------------+
+| items |          0 | PRIMARY      |            1 | item_no      | A         |           6 |     NULL |   NULL |      | BTREE      |         |               | YES     | NULL       |
+| items |          0 | product_name |            1 | product_name | A         |           6 |     NULL |   NULL | YES  | BTREE      |         |               | YES     | NULL       |
+| items |          1 | i1           |            1 | product_name | A         |           6 |     NULL |   NULL | YES  | BTREE      |         |               | YES     | NULL       |
++-------+------------+--------------+--------------+--------------+-----------+-------------+----------+--------+------+------------+---------+---------------+---------+------------+
+3 rows in set (0.02 sec)
+mysql> create unique index i2 on items(item_no);
+Query OK, 0 rows affected (0.04 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> show index from items;
++-------+------------+--------------+--------------+--------------+-----------+-------------+----------+--------+------+------------+---------+---------------+---------+------------+
+| Table | Non_unique | Key_name     | Seq_in_index | Column_name  | Collation | Cardinality | Sub_part | Packed | Null | Index_type | Comment | Index_comment | Visible | Expression |
++-------+------------+--------------+--------------+--------------+-----------+-------------+----------+--------+------+------------+---------+---------------+---------+------------+
+| items |          0 | PRIMARY      |            1 | item_no      | A         |           6 |     NULL |   NULL |      | BTREE      |         |               | YES     | NULL       |
+| items |          0 | i2           |            1 | item_no      | A         |           6 |     NULL |   NULL |      | BTREE      |         |               | YES     | NULL       |
+| items |          0 | product_name |            1 | product_name | A         |           6 |     NULL |   NULL | YES  | BTREE      |         |               | YES     | NULL       |
+| items |          1 | i1           |            1 | product_name | A         |           6 |     NULL |   NULL | YES  | BTREE      |         |               | YES     | NULL       |
++-------+------------+--------------+--------------+--------------+-----------+-------------+----------+--------+------+------------+---------+---------------+---------+------------+
+4 rows in set (0.01 sec)
+mysql> drop index i1 on items;
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> show index from items;
++-------+------------+--------------+--------------+--------------+-----------+-------------+----------+--------+------+------------+---------+---------------+---------+------------+
+| Table | Non_unique | Key_name     | Seq_in_index | Column_name  | Collation | Cardinality | Sub_part | Packed | Null | Index_type | Comment | Index_comment | Visible | Expression |
++-------+------------+--------------+--------------+--------------+-----------+-------------+----------+--------+------+------------+---------+---------------+---------+------------+
+| items |          0 | PRIMARY      |            1 | item_no      | A         |           6 |     NULL |   NULL |      | BTREE      |         |               | YES     | NULL       |
+| items |          0 | i2           |            1 | item_no      | A         |           6 |     NULL |   NULL |      | BTREE      |         |               | YES     | NULL       |
+| items |          0 | product_name |            1 | product_name | A         |           6 |     NULL |   NULL | YES  | BTREE      |         |               | YES     | NULL       |
++-------+------------+--------------+--------------+--------------+-----------+-------------+----------+--------+------+------------+---------+---------------+---------+------------+
+3 rows in set (0.00 sec)
+
+mysql> 
+
+

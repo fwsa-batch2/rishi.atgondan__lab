@@ -1,0 +1,148 @@
+mysql> show databases;
++---------------------+
+| Database            |
++---------------------+
+| constraints         |
+| games               |
+| information_schema  |
+| mysql               |
+| performance_schema  |
+| pubg_tournament_app |
+| school              |
+| sys                 |
+| test                |
++---------------------+
+9 rows in set (0.00 sec)
+
+mysql> use school;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> show tables;
++------------------+
+| Tables_in_school |
++------------------+
+| items            |
+| teachers         |
++------------------+
+2 rows in set (0.01 sec)
+
+mysql> desc items;
++---------------+-------------+------+-----+---------+----------------+
+| Field         | Type        | Null | Key | Default | Extra          |
++---------------+-------------+------+-----+---------+----------------+
+| item_no       | int         | NO   | PRI | NULL    | auto_increment |
+| product_name  | varchar(20) | YES  | UNI | NULL    |                |
+| price         | int         | NO   |     | NULL    |                |
+| country       | varchar(20) | YES  |     | INDIA   |                |
+| weight_in_kgs | varchar(20) | YES  |     | NULL    |                |
++---------------+-------------+------+-----+---------+----------------+
+5 rows in set (0.00 sec)
+
+mysql> select * from items;
++---------+--------------+-------+---------+---------------+
+| item_no | product_name | price | country | weight_in_kgs |
++---------+--------------+-------+---------+---------------+
+|       1 | Lays         |    20 | INDIA   | 1000          |
+|       2 | Kurkure      |    20 | INDIA   | 5000          |
+|       3 | Bingo        |    10 | INDIA   | 1000          |
+|       4 | Chocos       |    15 | INDIA   | 3000          |
+|       5 | Too yumm     |    30 | INDIA   | 4000          |
+|       6 | Doritos      |    40 | INDIA   | 6000          |
++---------+--------------+-------+---------+---------------+
+6 rows in set (0.00 sec)
+
+mysql> select * from items order by price asc;
++---------+--------------+-------+---------+---------------+
+| item_no | product_name | price | country | weight_in_kgs |
++---------+--------------+-------+---------+---------------+
+|       3 | Bingo        |    10 | INDIA   | 1000          |
+|       4 | Chocos       |    15 | INDIA   | 3000          |
+|       1 | Lays         |    20 | INDIA   | 1000          |
+|       2 | Kurkure      |    20 | INDIA   | 5000          |
+|       5 | Too yumm     |    30 | INDIA   | 4000          |
+|       6 | Doritos      |    40 | INDIA   | 6000          |
++---------+--------------+-------+---------+---------------+
+6 rows in set (0.00 sec)
+
+mysql> select * from items order by price desc;
++---------+--------------+-------+---------+---------------+
+| item_no | product_name | price | country | weight_in_kgs |
++---------+--------------+-------+---------+---------------+
+|       6 | Doritos      |    40 | INDIA   | 6000          |
+|       5 | Too yumm     |    30 | INDIA   | 4000          |
+|       1 | Lays         |    20 | INDIA   | 1000          |
+|       2 | Kurkure      |    20 | INDIA   | 5000          |
+|       4 | Chocos       |    15 | INDIA   | 3000          |
+|       3 | Bingo        |    10 | INDIA   | 1000          |
++---------+--------------+-------+---------+---------------+
+6 rows in set (0.00 sec)
+
+mysql> select count(weight_in_kgs) from items group by item_no;
++----------------------+
+| count(weight_in_kgs) |
++----------------------+
+|                    1 |
+|                    1 |
+|                    1 |
+|                    1 |
+|                    1 |
+|                    1 |
++----------------------+
+6 rows in set (0.00 sec)
+
+mysql> select count(weight_in_kgs) from items group by weight_in_kgs;
++----------------------+
+| count(weight_in_kgs) |
++----------------------+
+|                    2 |
+|                    1 |
+|                    1 |
+|                    1 |
+|                    1 |
++----------------------+
+5 rows in set (0.00 sec)
+
+mysql> select count(weight_in_kgs),weight_in_kgs from items group by weight_in_kgs;
++----------------------+---------------+
+| count(weight_in_kgs) | weight_in_kgs |
++----------------------+---------------+
+|                    2 | 1000          |
+|                    1 | 5000          |
+|                    1 | 3000          |
+|                    1 | 4000          |
+|                    1 | 6000          |
++----------------------+---------------+
+5 rows in set (0.00 sec)
+
+mysql> select sum(weight_in_kgs),weight_in_kgs from items group by weight_in_kgs;
++--------------------+---------------+
+| sum(weight_in_kgs) | weight_in_kgs |
++--------------------+---------------+
+|               2000 | 1000          |
+|               5000 | 5000          |
+|               3000 | 3000          |
+|               4000 | 4000          |
+|               6000 | 6000          |
++--------------------+---------------+
+5 rows in set (0.00 sec)
+
+mysql>  select count(product_name),weight_in_kgs from items group by weight_in_kgs having weight_in_kgs=1000 or weight_in_kgs=3000;
++---------------------+---------------+
+| count(product_name) | weight_in_kgs |
++---------------------+---------------+
+|                   2 | 1000          |
+|                   1 | 3000          |
++---------------------+---------------+
+2 rows in set (0.00 sec)
++----------------+--------------+
+| count(item_no) | product_name |
++----------------+--------------+
+|              1 | Lays         |
++----------------+--------------+
+1 row in set (0.00 sec)
+
+mysql> 
+
+

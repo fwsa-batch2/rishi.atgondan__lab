@@ -1,0 +1,202 @@
+mysql> show databases;
++---------------------+
+| Database            |
++---------------------+
+| games               |
+| information_schema  |
+| mysql               |
+| performance_schema  |
+| pubg_tournament_app |
+| sys                 |
++---------------------+
+6 rows in set (0.00 sec)
+
+mysql> create database school;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> show databases;
++---------------------+
+| Database            |
++---------------------+
+| games               |
+| information_schema  |
+| mysql               |
+| performance_schema  |
+| pubg_tournament_app |
+| school              |
+| sys                 |
++---------------------+
+7 rows in set (0.00 sec)
+
+mysql> use school;
+Database changed
+mysql> create table teachers (id int primary key auto_increment , name varchar(30) not null , subject varchar(30) unique , age int(2) , gender varchar(20) , mail_id varchar(50));
+Query OK, 0 rows affected, 1 warning (0.05 sec)
+
+mysql> desc school;
+ERROR 1146 (42S02): Table 'school.school' doesn't exist
+mysql> show tables;
++------------------+
+| Tables_in_school |
++------------------+
+| teachers         |
++------------------+
+1 row in set (0.01 sec)
+
+mysql> desc teachers;
++---------+-------------+------+-----+---------+----------------+
+| Field   | Type        | Null | Key | Default | Extra          |
++---------+-------------+------+-----+---------+----------------+
+| id      | int         | NO   | PRI | NULL    | auto_increment |
+| name    | varchar(30) | NO   |     | NULL    |                |
+| subject | varchar(30) | YES  | UNI | NULL    |                |
+| age     | int         | YES  |     | NULL    |                |
+| gender  | varchar(20) | YES  |     | NULL    |                |
+| mail_id | varchar(50) | YES  |     | NULL    |                |
++---------+-------------+------+-----+---------+----------------+
+6 rows in set (0.01 sec)
+
+mysql> insert into teachers values (1,'Chitra','Tech',25,'Female','chitra123@gmail.com');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into teachers values (2,'Revathi','English',30,'Female','revathi123@gmail.com');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into teachers values (3,'Prasanna','L&D',23,'Female','prasanna123@gmail.com');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into teachers values (4,'Lisha','ELS',22,'Female','lisha123@gmail.com');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into teachers values (5,'Naresh','Code_reviewer',34,'Male','naresh123@gmail.com');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into teachers values (6,'Surya','Tech_assistant',26,'Male','surya123@gmail.com');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into teachers values (7,'Shyam','Manager',29,'Male','shyam123@gmail.com');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> select * from teachers;
++----+----------+----------------+------+--------+-----------------------+
+| id | name     | subject        | age  | gender | mail_id               |
++----+----------+----------------+------+--------+-----------------------+
+|  1 | Chitra   | Tech           |   25 | Female | chitra123@gmail.com   |
+|  2 | Revathi  | English        |   30 | Female | revathi123@gmail.com  |
+|  3 | Prasanna | L&D            |   23 | Female | prasanna123@gmail.com |
+|  4 | Lisha    | ELS            |   22 | Female | lisha123@gmail.com    |
+|  5 | Naresh   | Code_reviewer  |   34 | Male   | naresh123@gmail.com   |
+|  6 | Surya    | Tech_assistant |   26 | Male   | surya123@gmail.com    |
+|  7 | Shyam    | Manager        |   29 | Male   | shyam123@gmail.com    |
++----+----------+----------------+------+--------+-----------------------+
+7 rows in set (0.00 sec)
+
+mysql> alter table teachers;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> alter table teachers add salary int(10);
+Query OK, 0 rows affected, 1 warning (0.05 sec)
+Records: 0  Duplicates: 0  Warnings: 1
+
+mysql> select * from teachers;
++----+----------+----------------+------+--------+-----------------------+--------+
+| id | name     | subject        | age  | gender | mail_id               | salary |
++----+----------+----------------+------+--------+-----------------------+--------+
+|  1 | Chitra   | Tech           |   25 | Female | chitra123@gmail.com   |   NULL |
+|  2 | Revathi  | English        |   30 | Female | revathi123@gmail.com  |   NULL |
+|  3 | Prasanna | L&D            |   23 | Female | prasanna123@gmail.com |   NULL |
+|  4 | Lisha    | ELS            |   22 | Female | lisha123@gmail.com    |   NULL |
+|  5 | Naresh   | Code_reviewer  |   34 | Male   | naresh123@gmail.com   |   NULL |
+|  6 | Surya    | Tech_assistant |   26 | Male   | surya123@gmail.com    |   NULL |
+|  7 | Shyam    | Manager        |   29 | Male   | shyam123@gmail.com    |   NULL |
++----+----------+----------------+------+--------+-----------------------+--------+
+7 rows in set (0.00 sec)
+
+mysql> update teachers set salary = 20000 where id = 1;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update teachers set salary = 25000 where id = 4;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update teachers set salary = 25000 where id = 2;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update teachers set salary = 30000 where id = 3;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update teachers set salary = 30000 where id between 4 and 7;
+Query OK, 4 rows affected (0.00 sec)
+Rows matched: 4  Changed: 4  Warnings: 0
+
+mysql> select * from teachers;
++----+----------+----------------+------+--------+-----------------------+--------+
+| id | name     | subject        | age  | gender | mail_id               | salary |
++----+----------+----------------+------+--------+-----------------------+--------+
+|  1 | Chitra   | Tech           |   25 | Female | chitra123@gmail.com   |  20000 |
+|  2 | Revathi  | English        |   30 | Female | revathi123@gmail.com  |  25000 |
+|  3 | Prasanna | L&D            |   23 | Female | prasanna123@gmail.com |  30000 |
+|  4 | Lisha    | ELS            |   22 | Female | lisha123@gmail.com    |  30000 |
+|  5 | Naresh   | Code_reviewer  |   34 | Male   | naresh123@gmail.com   |  30000 |
+|  6 | Surya    | Tech_assistant |   26 | Male   | surya123@gmail.com    |  30000 |
+|  7 | Shyam    | Manager        |   29 | Male   | shyam123@gmail.com    |  30000 |
++----+----------+----------------+------+--------+-----------------------+--------+
+7 rows in set (0.00 sec)
+mysql> alter table teachers rename column subject to role;
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from teachers;
++----+----------+----------------+------+--------+-----------------------+--------+
+| id | name     | role           | age  | gender | mail_id               | salary |
++----+----------+----------------+------+--------+-----------------------+--------+
+|  1 | Chitra   | Tech           |   25 | Female | chitra123@gmail.com   |  20000 |
+|  2 | Revathi  | English        |   30 | Female | revathi123@gmail.com  |  25000 |
+|  3 | Prasanna | L&D            |   23 | Female | prasanna123@gmail.com |  30000 |
+|  4 | Lisha    | ELS            |   22 | Female | lisha123@gmail.com    |  30000 |
+|  5 | Naresh   | Code_reviewer  |   34 | Male   | naresh123@gmail.com   |  30000 |
+|  6 | Surya    | Tech_assistant |   26 | Male   | surya123@gmail.com    |  30000 |
+|  7 | Shyam    | Manager        |   29 | Male   | shyam123@gmail.com    |  30000 |
++----+----------+----------------+------+--------+-----------------------+--------+
+7 rows in set (0.00 sec)
+
+mysql> delete from teachers where id = 7;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from teachers;
++----+----------+----------------+------+--------+-----------------------+--------+
+| id | name     | role           | age  | gender | mail_id               | salary |
++----+----------+----------------+------+--------+-----------------------+--------+
+|  1 | Chitra   | Tech           |   25 | Female | chitra123@gmail.com   |  20000 |
+|  2 | Revathi  | English        |   30 | Female | revathi123@gmail.com  |  25000 |
+|  3 | Prasanna | L&D            |   23 | Female | prasanna123@gmail.com |  30000 |
+|  4 | Lisha    | ELS            |   22 | Female | lisha123@gmail.com    |  30000 |
+|  5 | Naresh   | Code_reviewer  |   34 | Male   | naresh123@gmail.com   |  30000 |
+|  6 | Surya    | Tech_assistant |   26 | Male   | surya123@gmail.com    |  30000 |
++----+----------+----------------+------+--------+-----------------------+--------+
+6 rows in set (0.00 sec)
+
+mysql> alter table teachers
+    -> drop gender;
+Query OK, 0 rows affected (0.09 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from teachers;
++----+----------+----------------+------+-----------------------+--------+
+| id | name     | role           | age  | mail_id               | salary |
++----+----------+----------------+------+-----------------------+--------+
+|  1 | Chitra   | Tech           |   25 | chitra123@gmail.com   |  20000 |
+|  2 | Revathi  | English        |   30 | revathi123@gmail.com  |  25000 |
+|  3 | Prasanna | L&D            |   23 | prasanna123@gmail.com |  30000 |
+|  4 | Lisha    | ELS            |   22 | lisha123@gmail.com    |  30000 |
+|  5 | Naresh   | Code_reviewer  |   34 | naresh123@gmail.com   |  30000 |
+|  6 | Surya    | Tech_assistant |   26 | surya123@gmail.com    |  30000 |
++----+----------+----------------+------+-----------------------+--------+
+6 rows in set (0.00 sec)
+
+mysql> drop table teachers;
+Query OK, 0 rows affected (0.03 sec)
+Query OK, 0 rows affected (0.03 sec)

@@ -1,0 +1,90 @@
+mysql> show databases;
++---------------------+
+| Database            |
++---------------------+
+| games               |
+| information_schema  |
+| mysql               |
+| performance_schema  |
+| pubg_tournament_app |
+| school              |
+| sys                 |
++---------------------+
+7 rows in set (0.00 sec)
+
+mysql> create database test;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> use test;
+Database changed
+mysql> show tables;
+Empty set (0.01 sec)
+
+mysql> show databases;
+show databases;
+^C
+mysql> show databases;
++---------------------+
+| Database            |
++---------------------+
+| games               |
+| information_schema  |
+| mysql               |
+| performance_schema  |
+| pubg_tournament_app |
+| school              |
+| sys                 |
+| test                |
++---------------------+
+8 rows in set (0.01 sec)
+
+mysql> use school;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> show tables;
++------------------+
+| Tables_in_school |
++------------------+
+| teachers         |
++------------------+
+1 row in set (0.00 sec)
+
+mysql> desc teachers;
++---------+-------------+------+-----+---------+----------------+
+| Field   | Type        | Null | Key | Default | Extra          |
++---------+-------------+------+-----+---------+----------------+
+| id      | int         | NO   | PRI | NULL    | auto_increment |
+| name    | varchar(30) | NO   |     | NULL    |                |
+| role    | varchar(30) | YES  | UNI | NULL    |                |
+| age     | int         | YES  |     | NULL    |                |
+| mail_id | varchar(50) | YES  |     | NULL    |                |
+| salary  | int         | YES  |     | NULL    |                |
++---------+-------------+------+-----+---------+----------------+
+6 rows in set (0.00 sec)
+
+mysql> select * from teachers;
++----+----------+----------------+------+-----------------------+--------+
+| id | name     | role           | age  | mail_id               | salary |
++----+----------+----------------+------+-----------------------+--------+
+|  1 | Chitra   | Tech           |   25 | chitra123@gmail.com   |  20000 |
+|  2 | Revathi  | English        |   30 | revathi123@gmail.com  |  25000 |
+|  3 | Prasanna | L&D            |   23 | prasanna123@gmail.com |  30000 |
+|  4 | Lisha    | ELS            |   22 | lisha123@gmail.com    |  30000 |
+|  5 | Naresh   | Code_reviewer  |   34 | naresh123@gmail.com   |  30000 |
+|  6 | Surya    | Tech_assistant |   26 | surya123@gmail.com    |  30000 |
++----+----------+----------------+------+-----------------------+--------+
+6 rows in set (0.00 sec)
+
+mysql> select count(*),count(distinct(salary)),sum(salary),avg(salary),max(age),min(age) from teachers;
++----------+-------------------------+-------------+-------------+----------+----------+
+| count(*) | count(distinct(salary)) | sum(salary) | avg(salary) | max(age) | min(age) |
++----------+-------------------------+-------------+-------------+----------+----------+
+|        6 |                       3 |      165000 |  27500.0000 |       34 |       22 |
++----------+-------------------------+-------------+-------------+----------+----------+
+1 row in set (0.00 sec)
+
+mysql> 
+
+

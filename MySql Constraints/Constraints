@@ -1,0 +1,99 @@
+mysql> show database;
+mysql> show databases;
++---------------------+
+| Database            |
++---------------------+
+| games               |
+| information_schema  |
+| mysql               |
+| performance_schema  |
+| pubg_tournament_app |
+| school              |
+| sys                 |
+| test                |
++---------------------+
+8 rows in set (0.00 sec)
+
+mysql> create database constraints;
+Query OK, 1 row affected (0.01 sec)
+mysql> create table items (item_no int(10) primary key auto_increment , product_name varchar(20) unique , price int(20) not null , country varchar(20) default 'INDIA' , weight_in_kgs varchar(20) check(weight_in_kgs >500));
+Query OK, 0 rows affected, 2 warnings (0.05 sec)
+
+mysql> desc items;
++---------------+-------------+------+-----+---------+----------------+
+| Field         | Type        | Null | Key | Default | Extra          |
++---------------+-------------+------+-----+---------+----------------+
+| item_no       | int         | NO   | PRI | NULL    | auto_increment |
+| product_name  | varchar(20) | YES  | UNI | NULL    |                |
+| price         | int         | NO   |     | NULL    |                |
+| country       | varchar(20) | YES  |     | INDIA   |                |
+| weight_in_kgs | varchar(20) | YES  |     | NULL    |                |
++---------------+-------------+------+-----+---------+----------------+
+5 rows in set (0.00 sec)
+
+mysql> insert into items values(1,'lays',20,NULL,1000);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from items;
++---------+--------------+-------+---------+---------------+
+| item_no | product_name | price | country | weight_in_kgs |
++---------+--------------+-------+---------+---------------+
+|       1 | lays         |    20 | NULL    | 1000          |
++---------+--------------+-------+---------+---------------+
+1 row in set (0.00 sec)
+mysql> insert into items values(2,'kurkure',20,'',1000);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from items;
++---------+--------------+-------+---------+---------------+
+| item_no | product_name | price | country | weight_in_kgs |
++---------+--------------+-------+---------+---------------+
+|       1 | lays         |    20 | NULL    | 1000          |
+|       2 | kurkure      |    20 |         | 1000          |
++---------+--------------+-------+---------+---------------+
+2 rows in set (0.00 sec)
+
+mysql> truncate items;
+Query OK, 0 rows affected (0.07 sec)
+
+mysql> select * from items;
+Empty set (0.00 sec)
+
+mysql> insert into items values(1,'Lays',20,'india',1000);
+Query OK, 1 row affected (0.01 sec)
+mysql> truncate items;
+Query OK, 0 rows affected (0.06 sec)
+mysql> insert into items(item_no,product_name,price,weight_in_kgs) values(1,'Lays',20,1000);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into items(product_name,price,weight_in_kgs) values('Kurkure',20,5000);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into items(product_name,price,weight_in_kgs) values('Bingo',10,1000);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into items(product_name,price,weight_in_kgs) values('Chocos',15,3000);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into items(product_name,price,weight_in_kgs) values('Too yumm',30,4000);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into items(product_name,price,weight_in_kgs) values('Doritos',40,6000);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from items;
++---------+--------------+-------+---------+---------------+
+| item_no | product_name | price | country | weight_in_kgs |
++---------+--------------+-------+---------+---------------+
+|       1 | Lays         |    20 | INDIA   | 1000          |
+|       2 | Kurkure      |    20 | INDIA   | 5000          |
+|       3 | Bingo        |    10 | INDIA   | 1000          |
+|       4 | Chocos       |    15 | INDIA   | 3000          |
+|       5 | Too yumm     |    30 | INDIA   | 4000          |
+|       6 | Doritos      |    40 | INDIA   | 6000          |
++---------+--------------+-------+---------+---------------+
+6 rows in set (0.00 sec)
+
+mysql> 
+
+
