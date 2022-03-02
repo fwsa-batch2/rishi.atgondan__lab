@@ -119,11 +119,11 @@ mysql> select * from students;
 11 rows in set (0.00 sec)
 
 mysql> select name from students where email = 'rishijeeva13@gmail.com' and password = 'rishi12345';
-+-------+
+
 | name  |
-+-------+
+|:------|
 | Rishi |
-+-------+
+
 1 row in set (0.00 sec)
 
 mysql> select name from students where email = 'parthivactor@gmail.com' and password = 'parthiv123';
