@@ -13,10 +13,11 @@ mysql> show databases;
 | sys                 |
 | test                |
 11 rows in set (0.00 sec)
-
+```
 mysql> use student_information;
 Reading table information for completion of table and column names
 You can turn off this feature to get a quicker startup with -A
+```
 
 Database changed
 mysql> show tables;
