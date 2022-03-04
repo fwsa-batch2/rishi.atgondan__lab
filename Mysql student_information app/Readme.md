@@ -485,7 +485,7 @@ mysql> select * from student_class;
 11 rows in set (0.00 sec)
 ```
 ```
-mysql> select st.name from students st inner join student_class sc on st.id=sc.student_id where class=ALL(select class from student_class where class is not null);
+mysql> select st.name from students st inner join student_class sc on st.id=sc.student_id where class=ALL(select class from student_class where class is null);
 Empty set (0.01 sec)
 ```
 
