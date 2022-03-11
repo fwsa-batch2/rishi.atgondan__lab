@@ -1,0 +1,289 @@
+mysql> create view v1 as select * from users;
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> select * from v1;
++---------+----------------------+--------------------------------+----------------+------------+
+| user_id | user_name            | user_mailId                    | user_password  | join_date  |
++---------+----------------------+--------------------------------+----------------+------------+
+|       1 | Chitra Muthukumaran  | chitram@gmail.com              | Chitra@1234    | 2007-09-24 |
+|       2 | Revathi Iyer         | revathiiyer@gmail.com          | Revathi@1234   | 1998-12-12 |
+|       3 | Prasanna Bharathi    | prasannabharathi@gmail.com     | Prasanna@1234  | 2010-12-12 |
+|       4 | Shyam                | shanmugaanantharaman@gmail.com | Shyam@1234     | 2010-12-12 |
+|       5 | Deepak Panneerselvam | deepak@gmail.com               | Deepak@1234    | 2021-10-04 |
+|       6 | Kasi Antony          | kasi@gmail.com                 | Kasi@1234      | 2021-10-04 |
+|       7 | Keerthana            | keerthana@gmail.com            | Keerthi@1234   | 2021-10-04 |
+|       8 | Meenu Sowjanya       | msowjanyac@gmail.com           | Meenu@1234     | 2021-10-04 |
+|       9 | Pavan Raaj           | pavan@gmail.com                | Pavan@1234     | 2021-10-04 |
+|      10 | Venkatakkrishnan     | venkat@gmail.com               | Venki@1234     | 2021-10-04 |
+|      11 | Vaishnavi            | vaishnavi@gmail.com            | Vaishnavi@1234 | 2021-10-04 |
++---------+----------------------+--------------------------------+----------------+------------+
+11 rows in set (0.00 sec)
+
+mysql> drop view v1;
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> use FreshTech;
+Database changed
+mysql> create view `Users ordered as per join date` as select * from users order by join_date asc;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> select * from `Users ordered as per join date`;
++---------+----------------------+--------------------------------+----------------+------------+
+| user_id | user_name            | user_mailId                    | user_password  | join_date  |
++---------+----------------------+--------------------------------+----------------+------------+
+|       2 | Revathi Iyer         | revathiiyer@gmail.com          | Revathi@1234   | 1998-12-12 |
+|       1 | Chitra Muthukumaran  | chitram@gmail.com              | Chitra@1234    | 2007-09-24 |
+|       3 | Prasanna Bharathi    | prasannabharathi@gmail.com     | Prasanna@1234  | 2010-12-12 |
+|       4 | Shyam                | shanmugaanantharaman@gmail.com | Shyam@1234     | 2010-12-12 |
+|       5 | Deepak Panneerselvam | deepak@gmail.com               | Deepak@1234    | 2021-10-04 |
+|       6 | Kasi Antony          | kasi@gmail.com                 | Kasi@1234      | 2021-10-04 |
+|       7 | Keerthana            | keerthana@gmail.com            | Keerthi@1234   | 2021-10-04 |
+|       8 | Meenu Sowjanya       | msowjanyac@gmail.com           | Meenu@1234     | 2021-10-04 |
+|       9 | Pavan Raaj           | pavan@gmail.com                | Pavan@1234     | 2021-10-04 |
+|      10 | Venkatakkrishnan     | venkat@gmail.com               | Venki@1234     | 2021-10-04 |
+|      11 | Vaishnavi            | vaishnavi@gmail.com            | Vaishnavi@1234 | 2021-10-04 |
++---------+----------------------+--------------------------------+----------------+------------+
+11 rows in set (0.00 sec)
+
+mysql> select * from users;
++---------+----------------------+--------------------------------+----------------+------------+
+| user_id | user_name            | user_mailId                    | user_password  | join_date  |
++---------+----------------------+--------------------------------+----------------+------------+
+|       1 | Chitra Muthukumaran  | chitram@gmail.com              | Chitra@1234    | 2007-09-24 |
+|       2 | Revathi Iyer         | revathiiyer@gmail.com          | Revathi@1234   | 1998-12-12 |
+|       3 | Prasanna Bharathi    | prasannabharathi@gmail.com     | Prasanna@1234  | 2010-12-12 |
+|       4 | Shyam                | shanmugaanantharaman@gmail.com | Shyam@1234     | 2010-12-12 |
+|       5 | Deepak Panneerselvam | deepak@gmail.com               | Deepak@1234    | 2021-10-04 |
+|       6 | Kasi Antony          | kasi@gmail.com                 | Kasi@1234      | 2021-10-04 |
+|       7 | Keerthana            | keerthana@gmail.com            | Keerthi@1234   | 2021-10-04 |
+|       8 | Meenu Sowjanya       | msowjanyac@gmail.com           | Meenu@1234     | 2021-10-04 |
+|       9 | Pavan Raaj           | pavan@gmail.com                | Pavan@1234     | 2021-10-04 |
+|      10 | Venkatakkrishnan     | venkat@gmail.com               | Venki@1234     | 2021-10-04 |
+|      11 | Vaishnavi            | vaishnavi@gmail.com            | Vaishnavi@1234 | 2021-10-04 |
++---------+----------------------+--------------------------------+----------------+------------+
+11 rows in set (0.00 sec)
+
+mysql> show tables;
++--------------------------------+
+| Tables_in_FreshTech            |
++--------------------------------+
+| Users ordered as per join date |
+| admins                         |
+| reports                        |
+| students                       |
+| user_address                   |
+| user_contacts                  |
+| users                          |
++--------------------------------+
+7 rows in set (0.01 sec)
+
+mysql> create or replace view `Users ordered as per join date` as select * from users where user_name like("K%") order by join_date asc;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> select * from `Users ordered as per join date`;
++---------+-------------+---------------------+---------------+------------+
+| user_id | user_name   | user_mailId         | user_password | join_date  |
++---------+-------------+---------------------+---------------+------------+
+|       6 | Kasi Antony | kasi@gmail.com      | Kasi@1234     | 2021-10-04 |
+|       7 | Keerthana   | keerthana@gmail.com | Keerthi@1234  | 2021-10-04 |
++---------+-------------+---------------------+---------------+------------+
+2 rows in set (0.00 sec)
+
+mysql> rename table `Users ordered as per join date` to `Users ordered as per join date and names starting with L`;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> select * from `Users ordered as per join date and names starting with L`;
++---------+-------------+---------------------+---------------+------------+
+| user_id | user_name   | user_mailId         | user_password | join_date  |
++---------+-------------+---------------------+---------------+------------+
+|       6 | Kasi Antony | kasi@gmail.com      | Kasi@1234     | 2021-10-04 |
+|       7 | Keerthana   | keerthana@gmail.com | Keerthi@1234  | 2021-10-04 |
++---------+-------------+---------------------+---------------+------------+
+2 rows in set (0.00 sec)
+
+mysql> insert into `Users ordered as per join date and names starting with L` values(12,"Lice Vimal","vimal@gmail.com","Vimal@1234","2021-10-04");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from `Users ordered as per join date and names starting with L`;
++---------+-------------+---------------------+---------------+------------+
+| user_id | user_name   | user_mailId         | user_password | join_date  |
++---------+-------------+---------------------+---------------+------------+
+|       6 | Kasi Antony | kasi@gmail.com      | Kasi@1234     | 2021-10-04 |
+|       7 | Keerthana   | keerthana@gmail.com | Keerthi@1234  | 2021-10-04 |
++---------+-------------+---------------------+---------------+------------+
+2 rows in set (0.00 sec)
+
+mysql> select * from users;
++---------+----------------------+--------------------------------+----------------+------------+
+| user_id | user_name            | user_mailId                    | user_password  | join_date  |
++---------+----------------------+--------------------------------+----------------+------------+
+|       1 | Chitra Muthukumaran  | chitram@gmail.com              | Chitra@1234    | 2007-09-24 |
+|       2 | Revathi Iyer         | revathiiyer@gmail.com          | Revathi@1234   | 1998-12-12 |
+|       3 | Prasanna Bharathi    | prasannabharathi@gmail.com     | Prasanna@1234  | 2010-12-12 |
+|       4 | Shyam                | shanmugaanantharaman@gmail.com | Shyam@1234     | 2010-12-12 |
+|       5 | Deepak Panneerselvam | deepak@gmail.com               | Deepak@1234    | 2021-10-04 |
+|       6 | Kasi Antony          | kasi@gmail.com                 | Kasi@1234      | 2021-10-04 |
+|       7 | Keerthana            | keerthana@gmail.com            | Keerthi@1234   | 2021-10-04 |
+|       8 | Meenu Sowjanya       | msowjanyac@gmail.com           | Meenu@1234     | 2021-10-04 |
+|       9 | Pavan Raaj           | pavan@gmail.com                | Pavan@1234     | 2021-10-04 |
+|      10 | Venkatakkrishnan     | venkat@gmail.com               | Venki@1234     | 2021-10-04 |
+|      11 | Vaishnavi            | vaishnavi@gmail.com            | Vaishnavi@1234 | 2021-10-04 |
+|      12 | Lice Vimal           | vimal@gmail.com                | Vimal@1234     | 2021-10-04 |
++---------+----------------------+--------------------------------+----------------+------------+
+12 rows in set (0.00 sec)
+
+mysql> select * from `Users ordered as per join date and names starting with L`;
++---------+-------------+---------------------+---------------+------------+
+| user_id | user_name   | user_mailId         | user_password | join_date  |
++---------+-------------+---------------------+---------------+------------+
+|       6 | Kasi Antony | kasi@gmail.com      | Kasi@1234     | 2021-10-04 |
+|       7 | Keerthana   | keerthana@gmail.com | Keerthi@1234  | 2021-10-04 |
++---------+-------------+---------------------+---------------+------------+
+2 rows in set (0.00 sec)
+
+mysql> delete from `Users ordered as per join date and names starting with L` where id=12;
+ERROR 1054 (42S22): Unknown column 'id' in 'where clause'
+mysql> delete from `Users ordered as per join date and names starting with L` where user_id=12;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select * from `Users ordered as per join date and names starting with L`;
++---------+-------------+---------------------+---------------+------------+
+| user_id | user_name   | user_mailId         | user_password | join_date  |
++---------+-------------+---------------------+---------------+------------+
+|       6 | Kasi Antony | kasi@gmail.com      | Kasi@1234     | 2021-10-04 |
+|       7 | Keerthana   | keerthana@gmail.com | Keerthi@1234  | 2021-10-04 |
++---------+-------------+---------------------+---------------+------------+
+2 rows in set (0.00 sec)
+
+mysql> select * from users;
++---------+----------------------+--------------------------------+----------------+------------+
+| user_id | user_name            | user_mailId                    | user_password  | join_date  |
++---------+----------------------+--------------------------------+----------------+------------+
+|       1 | Chitra Muthukumaran  | chitram@gmail.com              | Chitra@1234    | 2007-09-24 |
+|       2 | Revathi Iyer         | revathiiyer@gmail.com          | Revathi@1234   | 1998-12-12 |
+|       3 | Prasanna Bharathi    | prasannabharathi@gmail.com     | Prasanna@1234  | 2010-12-12 |
+|       4 | Shyam                | shanmugaanantharaman@gmail.com | Shyam@1234     | 2010-12-12 |
+|       5 | Deepak Panneerselvam | deepak@gmail.com               | Deepak@1234    | 2021-10-04 |
+|       6 | Kasi Antony          | kasi@gmail.com                 | Kasi@1234      | 2021-10-04 |
+|       7 | Keerthana            | keerthana@gmail.com            | Keerthi@1234   | 2021-10-04 |
+|       8 | Meenu Sowjanya       | msowjanyac@gmail.com           | Meenu@1234     | 2021-10-04 |
+|       9 | Pavan Raaj           | pavan@gmail.com                | Pavan@1234     | 2021-10-04 |
+|      10 | Venkatakkrishnan     | venkat@gmail.com               | Venki@1234     | 2021-10-04 |
+|      11 | Vaishnavi            | vaishnavi@gmail.com            | Vaishnavi@1234 | 2021-10-04 |
+|      12 | Lice Vimal           | vimal@gmail.com                | Vimal@1234     | 2021-10-04 |
++---------+----------------------+--------------------------------+----------------+------------+
+12 rows in set (0.00 sec)
+
+
+
+mysql> drop view `Users ordered as per join date and names starting with L`;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> show tables;
++---------------------+
+| Tables_in_FreshTech |
++---------------------+
+| admins              |
+| reports             |
+| students            |
+| user_address        |
+| user_contacts       |
+| users               |
++---------------------+
+6 rows in set (0.01 sec)
+
+mysql> select * from users,user_contacts where users.user_id=user_contacts.user_id;
++---------+----------------------+--------------------------------+----------------+------------+---------+--------------+
+| user_id | user_name            | user_mailId                    | user_password  | join_date  | user_id | user_phoneNo |
++---------+----------------------+--------------------------------+----------------+------------+---------+--------------+
+|       1 | Chitra Muthukumaran  | chitram@gmail.com              | Chitra@1234    | 2007-09-24 |       1 |   9442972004 |
+|       1 | Chitra Muthukumaran  | chitram@gmail.com              | Chitra@1234    | 2007-09-24 |       1 |   9842448168 |
+|       2 | Revathi Iyer         | revathiiyer@gmail.com          | Revathi@1234   | 1998-12-12 |       2 |   7402066305 |
+|       3 | Prasanna Bharathi    | prasannabharathi@gmail.com     | Prasanna@1234  | 2010-12-12 |       3 |   7448354949 |
+|       4 | Shyam                | shanmugaanantharaman@gmail.com | Shyam@1234     | 2010-12-12 |       4 |   7989899993 |
+|       4 | Shyam                | shanmugaanantharaman@gmail.com | Shyam@1234     | 2010-12-12 |       4 |   9087654321 |
+|       4 | Shyam                | shanmugaanantharaman@gmail.com | Shyam@1234     | 2010-12-12 |       4 |   9890988976 |
+|       5 | Deepak Panneerselvam | deepak@gmail.com               | Deepak@1234    | 2021-10-04 |       5 |   9678876901 |
+|       6 | Kasi Antony          | kasi@gmail.com                 | Kasi@1234      | 2021-10-04 |       6 |   9345678890 |
+|       7 | Keerthana            | keerthana@gmail.com            | Keerthi@1234   | 2021-10-04 |       7 |   9012345678 |
+|       8 | Meenu Sowjanya       | msowjanyac@gmail.com           | Meenu@1234     | 2021-10-04 |       8 |   9876543210 |
+|       9 | Pavan Raaj           | pavan@gmail.com                | Pavan@1234     | 2021-10-04 |       9 |   9654321098 |
+|      10 | Venkatakkrishnan     | venkat@gmail.com               | Venki@1234     | 2021-10-04 |      10 |   9876900984 |
+|      11 | Vaishnavi            | vaishnavi@gmail.com            | Vaishnavi@1234 | 2021-10-04 |      11 |   7658904554 |
++---------+----------------------+--------------------------------+----------------+------------+---------+--------------+
+14 rows in set (0.01 sec)
+
+mysql> create view view_2 as select us.user_name,uc.user_phoneNo from users us,user_contacts uc where us.user_id=uc.user_id;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> select * from view_2;
++----------------------+--------------+
+| user_name            | user_phoneNo |
++----------------------+--------------+
+| Chitra Muthukumaran  |   9442972004 |
+| Chitra Muthukumaran  |   9842448168 |
+| Revathi Iyer         |   7402066305 |
+| Prasanna Bharathi    |   7448354949 |
+| Shyam                |   7989899993 |
+| Shyam                |   9087654321 |
+| Shyam                |   9890988976 |
+| Deepak Panneerselvam |   9678876901 |
+| Kasi Antony          |   9345678890 |
+| Keerthana            |   9012345678 |
+| Meenu Sowjanya       |   9876543210 |
+| Pavan Raaj           |   9654321098 |
+| Venkatakkrishnan     |   9876900984 |
+| Vaishnavi            |   7658904554 |
++----------------------+--------------+
+14 rows in set (0.00 sec)
+
+mysql> update view_2 set user_name="Vaishnavi P" where user_name="Vaishnavi";
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from view_2;
++----------------------+--------------+
+| user_name            | user_phoneNo |
++----------------------+--------------+
+| Chitra Muthukumaran  |   9442972004 |
+| Chitra Muthukumaran  |   9842448168 |
+| Revathi Iyer         |   7402066305 |
+| Prasanna Bharathi    |   7448354949 |
+| Shyam                |   7989899993 |
+| Shyam                |   9087654321 |
+| Shyam                |   9890988976 |
+| Deepak Panneerselvam |   9678876901 |
+| Kasi Antony          |   9345678890 |
+| Keerthana            |   9012345678 |
+| Meenu Sowjanya       |   9876543210 |
+| Pavan Raaj           |   9654321098 |
+| Venkatakkrishnan     |   9876900984 |
+| Vaishnavi P          |   7658904554 |
++----------------------+--------------+
+14 rows in set (0.00 sec)
+
+mysql> select * from users;
++---------+----------------------+--------------------------------+----------------+------------+
+| user_id | user_name            | user_mailId                    | user_password  | join_date  |
++---------+----------------------+--------------------------------+----------------+------------+
+|       1 | Chitra Muthukumaran  | chitram@gmail.com              | Chitra@1234    | 2007-09-24 |
+|       2 | Revathi Iyer         | revathiiyer@gmail.com          | Revathi@1234   | 1998-12-12 |
+|       3 | Prasanna Bharathi    | prasannabharathi@gmail.com     | Prasanna@1234  | 2010-12-12 |
+|       4 | Shyam                | shanmugaanantharaman@gmail.com | Shyam@1234     | 2010-12-12 |
+|       5 | Deepak Panneerselvam | deepak@gmail.com               | Deepak@1234    | 2021-10-04 |
+|       6 | Kasi Antony          | kasi@gmail.com                 | Kasi@1234      | 2021-10-04 |
+|       7 | Keerthana            | keerthana@gmail.com            | Keerthi@1234   | 2021-10-04 |
+|       8 | Meenu Sowjanya       | msowjanyac@gmail.com           | Meenu@1234     | 2021-10-04 |
+|       9 | Pavan Raaj           | pavan@gmail.com                | Pavan@1234     | 2021-10-04 |
+|      10 | Venkatakkrishnan     | venkat@gmail.com               | Venki@1234     | 2021-10-04 |
+|      11 | Vaishnavi P          | vaishnavi@gmail.com            | Vaishnavi@1234 | 2021-10-04 |
+|      12 | Lice Vimal           | vimal@gmail.com                | Vimal@1234     | 2021-10-04 |
++---------+----------------------+--------------------------------+----------------+------------+
+12 rows in set (0.00 sec)
+
+mysql> insert into view_2 values("Pradeep",9378732678);
+ERROR 1394 (HY000): Can not insert into join view 'FreshTech.view_2' without fields list
+mysql> insert into view_2(user_name,user_phoneNo) values("Pradeep",9378732678);
+ERROR 1393 (HY000): Can not modify more than one base table through a join view 'FreshTech.view_2'
+mysql> drop view view_2;
+Query OK, 0 rows affected (0.01 sec)
