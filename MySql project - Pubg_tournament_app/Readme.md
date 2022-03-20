@@ -114,9 +114,9 @@ INSERT INTO UC_Purchased (S_no,User_ID,NO_OF_UC_Purchased) values (10,4756778,60
 ```SYNTAX
 SELECT * FROM UC_Purchased;
 ```
-+------+----------+--------------------+
+
 | S_no | User_ID  | NO_OF_UC_Purchased |
-+------+----------+--------------------+
+|:-----|:---------|:-------------------|
 |    1 | 73832675 |                 60 |
 |    2 | 98248954 |                 60 |
 |    3 | 86249823 |               1800 |
@@ -127,7 +127,7 @@ SELECT * FROM UC_Purchased;
 |    8 | 69269827 |                 60 |
 |    9 | 72983479 |               3500 |
 |   10 |  4756778 |                600 |
-+------+----------+--------------------+
+
 ###### 10 rows in set (0.01 sec)
 
 
@@ -148,20 +148,20 @@ CREATE TABLE Registration_Form
 ```SYNTAX
 SHOW TABLES;
 ```
-+-------------------------------+
+
 | Tables_in_Pubg_Tournament_App |
-+-------------------------------+
+|:------------------------------|
 | Registration_Form             |
 | UC_Purchased                  |
-+-------------------------------+
+
 
 ```SYNTAX
 DESC Registration_Form;
 ```
 
-+-----------------------+-------------+------+-----+---------+-------+
+
 | Field                 | Type        | Null | Key | Default | Extra |
-+-----------------------+-------------+------+-----+---------+-------+
+|:----------------------|:------------|:-----|:----|:--------|:------|
 | Email_ID              | varchar(50) | YES  | UNI | NULL    |       |
 | Clan_Name             | varchar(50) | NO   | PRI | NULL    |       |
 | Team_Name             | varchar(50) | YES  | UNI | NULL    |       |
@@ -175,7 +175,7 @@ DESC Registration_Form;
 | Player_4_Character_ID | int         | YES  | UNI | NULL    |       |
 | Player_5_IGN          | varchar(40) | YES  | UNI | NULL    |       |
 | Player_5_Character_ID | int         | YES  | UNI | NULL    |       |
-+-----------------------+-------------+------+-----+---------+-------+
+
 13 rows in set (0.00 sec)
 
 ```SYNTAX
@@ -335,15 +335,15 @@ INSERT INTO Registration_Form VALUES
 SELECT * FROM Registration_Form;
 ```
 
-+------------------------+-------------------+------------------+--------------+-----------------------+--------------+-----------------------+--------------+-----------------------+---------------+-----------------------+---------------+-----------------------+
+
 | Email_ID               | Clan_Name         | Team_Name        | Player_1_IGN | Player_1_Character_ID | Player_2_IGN | Player_2_Character_ID | Player_3_IGN | Player_3_Character_ID | Player_4_IGN  | Player_4_Character_ID | Player_5_IGN  | Player_5_Character_ID |
-+------------------------+-------------------+------------------+--------------+-----------------------+--------------+-----------------------+--------------+-----------------------+---------------+-----------------------+---------------+-----------------------+
+|:-----------------------|:------------------|:-----------------|:-------------|:----------------------|:-------------|:----------------------|:-------------|:----------------------|:--------------|:----------------------|:--------------|:----------------------|
 | blindesports@gmail.com | Blind_esports     | Team_blind       | Blind_psycho |              98346598 | Blind_nivin  |              92790724 | Blind_denver |              83745485 | Blind_Frink   |              98273843 | Blind_SpyOP   |              98437587 |
 | ddfrever@gmail.com     | Dead_Elites       | Dead_Elites_Real | DD_Daxter    |              32487234 | DD_Aceop     |              98475897 | DD_Maddyftw  |              98237474 | DD_Tomtodp    |             582378344 | DD_Srinath    |              69270872 |
 | rgeesports@gmail.com   | Recokning_esports | Team_RGE         | RGE_Abrar    |              87346843 | RGE_Maxy     |              98475874 | RGE_Spray    |              34876237 | RGE_BeardBaba |              98724987 | RGE_EvilSurya |              98347859 |
 | rishijeeva13@gmail.com | Soul              | Rising_soul      | Soul_mortal  |              75849574 | Soul_viper   |              64738297 | Soul_ronak   |              73829374 | Soul_owais    |              64738294 | Soul_regaltos |              74839276 |
 | tt134@gmail.com        | Tamilanz          | OG_Tamilanz      | Tamil_brainy |              78263876 | Tamil_macan  |              97239723 | Tamil_nandha |              89273892 | Tamil_aakash  |              87459827 | Soul_viper    |              92374983 |
-+------------------------+-------------------+------------------+--------------+-----------------------+--------------+-----------------------+--------------+-----------------------+---------------+-----------------------+---------------+-----------------------+
+
 ###### 5 rows in set (0.00 sec)
 
 
@@ -356,25 +356,25 @@ CREATE TABLE List_OF_Queries (S_no INT PRIMARY KEY, QUERIES VARCHAR(200));
 ```SYNTAX
 SHOW TABLES;
 ```
-+-------------------------------+
+
 | Tables_in_Pubg_Tournament_App |
-+-------------------------------+
+|:------------------------------|
 | List_OF_Queries               |
 | Registration_Form             |
 | UC_Purchased                  |
-+-------------------------------+
+
 ###### 3 rows in set (0.01 sec)
 
 ```SYNTAX
 DESC List_OF_Queries;
 ```
 
-+---------+--------------+------+-----+---------+-------+
+
 | Field   | Type         | Null | Key | Default | Extra |
-+---------+--------------+------+-----+---------+-------+
+|:--------|:-------------|:-----|:----|:--------|:------|
 | S_no    | int          | NO   | PRI | NULL    |       |
 | QUERIES | varchar(200) | YES  |     | NULL    |       |
-+---------+--------------+------+-----+---------+-------+
+
 ###### 2 rows in set (0.00 sec)
 
 ```SYNTAX
@@ -412,15 +412,15 @@ INSERT INTO List_OF_Queries VALUES (5,'Will you provide headphones in finals?');
 SELECT * FROM List_OF_Queries;
 ```
 
-+------+--------------------------------------------------------------------------+
+
 | S_no | QUERIES                                                                  |
-+------+--------------------------------------------------------------------------+
+|:-----|:-------------------------------------------------------------------------|
 |    1 | Can you say which maps will be played in qualifiers                      |
 |    2 | Is there a wild card entry for any teams?                                |
 |    3 | Can we use triggers in tournament ?                                      |
 |    4 | Which Phone will be provided on Finals? Please give us IPhone for finals |
 |    5 | Will you provide headphones in finals?                                   |
-+------+--------------------------------------------------------------------------+
+
 5 rows in set (0.00 sec)
 
 ```SYNTAX
@@ -433,27 +433,26 @@ CREATE TABLE Add_Highlights (S_no INT PRIMARY KEY , Video_URL VARCHAR(100) , Des
 SHOW TABLES;
 ```
 
-+-------------------------------+
 | Tables_in_Pubg_Tournament_App |
-+-------------------------------+
+|:------------------------------|
 | Add_Highlights                |
 | List_OF_Queries               |
 | Registration_Form             |
 | UC_Purchased                  |
-+-------------------------------+
+
 4 rows in set (0.00 sec)
 
 ```SYNTAX
 DESC Add_Highlights;
 ```
 
-+-------------+--------------+------+-----+---------+-------+
+
 | Field       | Type         | Null | Key | Default | Extra |
-+-------------+--------------+------+-----+---------+-------+
+|:------------|:-------------|:-----|:----|:--------|:------|
 | S_no        | int          | NO   | PRI | NULL    |       |
 | Video_URL   | varchar(100) | YES  |     | NULL    |       |
 | Description | text         | YES  |     | NULL    |       |
-+-------------+--------------+------+-----+---------+-------+
+
 3 rows in set (0.00 sec)
 
 ```SYNTAX
@@ -491,14 +490,14 @@ UPDATE Add_Highlights SET Description = 'Snax gaming is also known as Raj Varma 
 SELECT * FROM Add_Highlights;
 ```
 
-+------+-------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
 | S_no | Video_URL                                 | Description                                                                                                                                                                                                                                                                                                                            |
-+------+-------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|:-----|:------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |    1 | https://www.youtube.com/embed/xyyAiRkABpk |  An 18 year under dog player from tamilnadu improving his skills by grinding.                                                                                                                                                                                                                                                          |
 |    2 | https://www.youtube.com/embed/SIaVTMDcFB0 | 17 Year Old Indian Playing For Skill Improvement And Not For  KD                                                                                                                                                                                                                                                                       |
 |    3 | https://www.youtube.com/embed/IdOhr85-Gg0 | Jonathan Amaral is an Indian professional E-sports athlete, PUBG Mobile player, streamer, gaming content creator, and social media influencer from Pune, Maharastra, India.                                                                                                                                                            |
 |    4 | https://www.youtube.com/embed/tlL1mSg2Wfg | Snax gaming is also known as Raj Varma is a professional E-Sports player and is well known for his amazing DP-28 spray                                                                                                                                                                                                                 |
-+------+-------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
 ###### 4 rows in set (0.00 sec)
 
 ```SYNTAX
@@ -518,29 +517,29 @@ CREATE TABLE Contact_US (Name VARCHAR(50) , Email_ID VARCHAR(50) , Contact_NO IN
 SHOW TABLES;
 ```
 
-+-------------------------------+
+
 | Tables_in_Pubg_Tournament_App |
-+-------------------------------+
+|:------------------------------|
 | Add_Highlights                |
 | Contact_US                    |
 | List_OF_Queries               |
 | Registration_Form             |
 | UC_Purchased                  |
-+-------------------------------+
+
 ###### 5 rows in set (0.01 sec)
 
 ```SYNTAX
 DESC Contact_US;
 ```
 
-+------------+-------------+------+-----+---------+-------+
+
 | Field      | Type        | Null | Key | Default | Extra |
-+------------+-------------+------+-----+---------+-------+
+|:-----------|:------------|:-----|:----|:--------|:------|
 | Name       | varchar(50) | YES  |     | NULL    |       |
 | Email_ID   | varchar(50) | YES  |     | NULL    |       |
 | Contact_NO | int         | YES  |     | NULL    |       |
 | Messages   | text        | YES  |     | NULL    |       |
-+------------+-------------+------+-----+---------+-------+
+
 ###### 4 rows in set (0.00 sec)
 
 ```SYNTAX
@@ -613,15 +612,15 @@ game was really good can you please update more games like this? thank you!!');
 SELECT * FROM Contact_US;
 ```
 
-+----------+------------------------+------------+----------------------------------------------------------------------------------------------------------------------------+
+
 | Name     | Email_ID               | Contact_NO | Messages                                                                                                                   |
-+----------+------------------------+------------+----------------------------------------------------------------------------------------------------------------------------+
+|:---------|:-----------------------|:-----------|:---------------------------------------------------------------------------------------------------------------------------|
 | Rishi    | rishijeeva13@gmail.com | 6381950080 | This website is really good and i particularly loved that esports page but i expecting more in that like images and videos |
 | kasi     | antokasi@gmail.com     | 8682072886 | I really like this website but i couldnt find any review page can you update it too                                        |
 | Ismail   | smile12@gmail.com      | 6473829433 | Some videos are not playing in the highlights page can you please fix that issues                                          |
 | Santhanu | sanboi1999@gmail.com   | 7647648733 | The news are old can you please update day to day news                                                                     |
 | Chithraj | spideyboy55@gmail.com  | 8765475786 | Shoot the teddy game was really good can you please update more games like this? thank you!!                               |
-+----------+------------------------+------------+----------------------------------------------------------------------------------------------------------------------------+
+
 5 rows in set (0.01 sec)
 
 ```SYNTAX
@@ -634,31 +633,30 @@ CREATE TABLE Registered_Users (S_no INT AUTO_INCREMENT PRIMARY KEY, Email_ID VAR
 SHOW TABLES;
 ```
 
-+-------------------------------+
 | Tables_in_Pubg_Tournament_App |
-+-------------------------------+
+|:------------------------------|
 | Added_Highlights              |
 | Contact_US                    |
 | List_OF_Queries               |
 | Registered_Users              |
 | Registration_Form             |
 | UC_Purchased                  |
-+-------------------------------+
-6 rows in set (0.01 sec)
+
+###### 6 rows in set (0.01 sec)
 
 ```SYNTAX
 DESC Registered_Users;
 ```
 
-+----------+-------------+------+-----+---------+----------------+
+
 | Field    | Type        | Null | Key | Default | Extra          |
-+----------+-------------+------+-----+---------+----------------+
+|:---------|:------------|:-----|:----|:--------|:---------------|
 | S_no     | int         | NO   | PRI | NULL    | auto_increment |
 | Email_ID | varchar(50) | YES  |     | NULL    |                |
 | User_ID  | int         | YES  |     | NULL    |                |
 | Password | varchar(20) | YES  |     | NULL    |                |
-+----------+-------------+------+-----+---------+----------------+
-4 rows in set (0.01 sec)
+
+###### 4 rows in set (0.01 sec)
 
 ```SYNTAX
 INSERT INTO Registered_Users VALUES (1,'rishijeeva13@gmail.com',75849574,'Soul@pubg');
@@ -699,25 +697,22 @@ INSERT INTO Registered_Users VALUES (5,'blindesports@gmail.com',98346598,'blinde
 ```SYNTAX
 SELECT * FROM Registered_Users;
 ```
-
-+------+------------------------+----------+-----------------+
 | S_no | Email_ID               | User_ID  | Password        |
-+------+------------------------+----------+-----------------+
+|:-----|:-----------------------|:---------|:----------------|
 |    1 | rishijeeva13@gmail.com | 75849574 | Soul@pubg       |
 |    2 | tt134@gmail.com        | 78263876 | ttz@pubg        |
 |    3 | ddfrever@gmail.com     | 32487234 | dds1122@pubg    |
 |    4 | rgeesports@gmail.com   | 87346843 | rgekillerz@pubg |
 |    5 | blindesports@gmail.com | 98346598 | blindesp@pubg   |
-+------+------------------------+----------+-----------------+
+
 ###### 5 rows in set (0.00 sec)
 
 ```SYNTAX
 SELECT * FROM UC_Purchased;
 ```
 
-+------+----------+--------------------+
 | S_no | User_ID  | NO_OF_UC_Purchased |
-+------+----------+--------------------+
+|:-----|:---------|:-------------------|
 |    1 | 73832675 |                 60 |
 |    2 | 98248954 |                 60 |
 |    3 | 86249823 |               1800 |
@@ -728,7 +723,7 @@ SELECT * FROM UC_Purchased;
 |    8 | 69269827 |                 60 |
 |    9 | 72983479 |               3500 |
 |   10 |  4756778 |                600 |
-+------+----------+--------------------+
+
 ###### 10 rows in set (0.01 sec)
 
 ```SYNTAX
@@ -824,9 +819,9 @@ INSERT INTO NEWS VALUES ('E3','Event');
 SHOW TABLES;
 ```
 
-+-------------------------------+
+
 | Tables_in_Pubg_Tournament_App |
-+-------------------------------+
+|:------------------------------|
 | Added_Highlights              |
 | Contact_US                    |
 | List_OF_Queries               |
@@ -834,28 +829,28 @@ SHOW TABLES;
 | Registered_Users              |
 | Registration_Form             |
 | UC_Purchased                  |
-+-------------------------------+
+
 ###### 8 rows in set (0.00 sec)
 
 ```SYNTAX
 DESC NEWS;
 ```
 
-+--------+-------------+------+-----+---------+-------+
+
 | Field  | Type        | Null | Key | Default | Extra |
-+--------+-------------+------+-----+---------+-------+
+:--------:-------------|:-----|:----|:--------|:------|
 | ID     | varchar(50) | NO   | PRI | NULL    |       |
 | TOPICS | varchar(50) | NO   |     | NULL    |       |
-+--------+-------------+------+-----+---------+-------+
+
 ###### 2 rows in set (0.00 sec)
 
 ```SYNTAX
 SELECT * FROM NEWS;
 ```
 
-+----+-------------+
+
 | ID | TOPICS      |
-+----+-------------+
+|:---|:------------|
 | A1 | Achievement |
 | A2 | Achievement |
 | A3 | Achievement |
@@ -865,7 +860,8 @@ SELECT * FROM NEWS;
 | N1 | Notice      |
 | N2 | Notice      |
 | N3 | Notice      |
-+----+-------------+
+
+
 ###### 9 rows in set (0.00 sec)
 
 ```SYNTAX
@@ -877,9 +873,9 @@ CREATE TABLE Notices (ID VARCHAR(50) PRIMARY KEY , Heading VARCHAR(100) NOT NULL
 ```SYNTAX
 SHOW TABLES;
 ```
-+-------------------------------+
+
 | Tables_in_Pubg_Tournament_App |
-+-------------------------------+
+|:------------------------------|
 | Added_Highlights              |
 | Contact_US                    |
 | List_OF_Queries               |
@@ -888,20 +884,20 @@ SHOW TABLES;
 | Registered_Users              |
 | Registration_Form             |
 | UC_Purchased                  |
-+-------------------------------+
+
+
 ###### 8 rows in set (0.00 sec)
 
 ```SYNTAX
 DESC Notices;
 ```
 
-+-------------+--------------+------+-----+---------+-------+
 | Field       | Type         | Null | Key | Default | Extra |
-+-------------+--------------+------+-----+---------+-------+
+|:------------|:-------------|:-----|:----|:--------|:------|
 | ID          | varchar(50)  | NO   | PRI | NULL    |       |
 | Heading     | varchar(100) | NO   |     | NULL    |       |
 | Description | varchar(500) | YES  |     | NULL    |       |
-+-------------+--------------+------+-----+---------+-------+
+
 ###### 3 rows in set (0.00 sec)
 
 ```SYNTAX
@@ -926,12 +922,12 @@ INSERT INTO Notices VALUES ('N3','Data Transfer Closeout','In order to ensure a 
 SELECT * FROM Notices;
 ```
 
-+----+---------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
 | ID | Heading                         | Description                                                                                                                                                                                                                                   |
-+----+---------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|:---|:--------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | N1 | Virus Infection Mode Taken Down | UPDATED : Dec 9, 15:17PM] Virus Infection Mode has been taken down temporarily. Dear BATTLEGROUNDS MOBILE INDIA fansWe have identified an issue when playing Virus Infection Mode, and will take down the mode temporarily at Dec 9, 14:50 PM |
 | N2 | November Update Schedule        | We are truly excited to bring the Mirror World Theme to you in the upcoming update. We like to inform you the schedule for the distribution of November update version on November 19th.                                                      |
 | N3 | Data Transfer Closeout          | In order to ensure a more smooth gameplay for players who had used PUBG MOBILE Normdic Map: Livik ("Prior App") before, BATTLEGROUNDS MOBILE INDIA ("New App") will transfer some of the data from the Prior App account to the New App.      |
-+----+---------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-3 rows in set (0.00 sec)
+
+###### 3 rows in set (0.00 sec)
 
