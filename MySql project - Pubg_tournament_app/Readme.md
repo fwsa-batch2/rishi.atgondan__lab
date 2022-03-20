@@ -64,7 +64,7 @@ DESC UC_Purchased;
 ```SYNTAX
 INSERT INTO UC_Purchased (S_no,User_ID,NO_OF_UC_Purchased) values (1,73832675,60);
 ```
-##### Query OK, 1 row affected (0.01 sec)
+###### Query OK, 1 row affected (0.01 sec)
 
 ```SYNTAX
 INSERT INTO UC_Purchased (S_no,User_ID,NO_OF_UC_Purchased) values (2,98248954,60);
