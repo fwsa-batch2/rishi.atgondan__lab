@@ -968,14 +968,19 @@ OneShot Showdown a BGMI invitational tournament calle
 ###### Query OK, 1 row affected (0.01 sec)
 
 ```SYNTAX
-SELECT * FROM Achievements;
+UPDATE Achievements SET Image_URL = 'http://127.0.0.1:5500/assets/images/fall_top3.jpg' WHERE ID = 'A2';
 ```
 
-| ID | Heading                    | Image_URL                                             | Description                                                                                                                                                                                                                                                                                |
+###### Query OK, 1 row affected (0.01 sec)
+###### Rows matched: 1  Changed: 1  Warnings: 0
+
+```SYNTAX
+SELECT * FROM Achievements;
+```
+| ID | Heading                    | Image_URL                                             | Description                                                                                                                                                                                                                                                                                
 |:---|:---------------------------|:------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | A1 | RIVALS TOURNAMENT          | http://127.0.0.1:5500/assets/images/rivals_top3.jpg   | PUBG Mobile Rivals Cup is a new inter-country tournament announced by the officials which will feature teams from Korea and Japan. This will be the final leg for the qualification of Tencent PUBG Mobile Global Championship 2021 scheduled to commence from 30th November,2021.         |
-| A2 | THE FALL SEASON - FACE OFF | THE FALL SEASON - FACE OFF                            | BattleGrounds Mobile India on the occasion of the release of the 1.7.0 update of BGMI, present a fun tournament named The Fall Season Face-Off. The tournament features 18 invited teams who will compete for a prize pool of ₹4,50,000 INR.                                               |
+| A2 | THE FALL SEASON - FACE OFF | http://127.0.0.1:5500/assets/images/fall_top3.jpg     | BattleGrounds Mobile India on the occasion of the release of the 1.7.0 update of BGMI, present a fun tournament named The Fall Season Face-Off. The tournament features 18 invited teams who will compete for a prize pool of ₹4,50,000 INR.                                               |
 | A3 | ONESHOT TOURNAMENT         | http://127.0.0.1:5500/assets/images/oneshot_champ.jpg | Oneshot eSports in association with Caribbean Decor present the second season of OneShot Showdown a BGMI invitational tournament called the OneShot Showdown Season 2 with a prize pool of ₹10,00,000 INR. The Grand Finals of the tournament features a prize pool of ₹10,00,000 INR.     |
 
 ###### 3 rows in set (0.00 sec)
-
