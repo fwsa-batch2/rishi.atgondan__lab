@@ -836,7 +836,7 @@ DESC NEWS;
 
 
 | Field  | Type        | Null | Key | Default | Extra |
-|:--------:------------|:-----|:----|:--------|:------|
+|:-------|:------------|:-----|:----|:--------|:------|
 | ID     | varchar(50) | NO   | PRI | NULL    |       |
 | TOPICS | varchar(50) | NO   |     | NULL    |       |
 
