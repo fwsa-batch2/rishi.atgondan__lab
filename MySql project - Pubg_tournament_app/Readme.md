@@ -932,8 +932,25 @@ SELECT * FROM Notices;
 ```SYNTAX
 CREATE TABLE Achievements (ID VARCHAR(50) PRIMARY KEY , Heading VARCHAR(50) NOT NULL , Image_URL VARCHAR(100) NOT NULL , Description VARCHAR(500) NOT NULL , FOREIGN KEY (ID) REFERENCES NEWS(ID));
 ```
+```SYNTAX
+SHOW TABLES;
+```
 
-###### Query OK, 0 rows affected (0.05 sec)
+
+| Tables_in_Pubg_Tournament_App |
+|:------------------------------|
+| Achievements                  |
+| Added_Highlights              |
+| Contact_US                    |                  
+| List_OF_Queries               |
+| NEWS                          |
+| Notices                       |
+| Registered_Users              |
+| Registration_Form             |
+| UC_Purchased                  |
+
+
+###### 9 rows in set (0.00 sec)
 
 ```SYNTAX
 DESC Achievements;
@@ -984,3 +1001,255 @@ SELECT * FROM Achievements;
 | A3 | ONESHOT TOURNAMENT         | http://127.0.0.1:5500/assets/images/oneshot_champ.jpg | Oneshot eSports in association with Caribbean Decor present the second season of OneShot Showdown a BGMI invitational tournament called the OneShot Showdown Season 2 with a prize pool of ₹10,00,000 INR. The Grand Finals of the tournament features a prize pool of ₹10,00,000 INR.     |
 
 ###### 3 rows in set (0.00 sec)
+
+```SYNTAX
+CREATE TABLE Events (ID VARCHAR(50) PRIMARY KEY , Image_URL VARCHAR(100) NOT NULL , Event_Name VARCHAR(30) NOT NULL, FOREIGN KEY (ID) REFERENCES NEWS (ID)) ;
+```
+
+```SYNTAX
+DESC Events;
+```
+
+
+| Field      | Type         | Null | Key | Default | Extra |
+|:-----------|:-------------|:-----|:----|:--------|:------|
+| ID         | varchar(50)  | NO   | PRI | NULL    |       |
+| Image_URL  | varchar(100) | NO   |     | NULL    |       |
+| Event_Name | varchar(30)  | NO   |     | NULL    |       |
+
+###### 3 rows in set (0.01 sec)
+
+###### Query OK, 0 rows affected (0.05 sec)
+
+```SYNTAX
+INSERT INTO Events VALUES('E1','http://127.0.0.1:5500/assets/images/pmco.jpg','PMCO');
+```
+###### Query OK, 1 row affected (0.01 sec)
+
+```SYNTAX
+INSERT INTO Events VALUES('E2','http://127.0.0.1:5500/assets/images/battlegrounds-.png','PMIT');
+```
+###### Query OK, 1 row affected (0.01 sec)
+
+```SYNTAX
+INSERT INTO Events VALUES('E3','http://127.0.0.1:5500/assets/images/app.png','BGIS');
+```
+###### Query OK, 1 row affected (0.01 sec)
+
+```SYNTAX
+UPDATE Events SET Event_Name = 'PMCO - PUBG MOBILE CLUB OPENS' WHERE ID = 'E1';
+```
+
+###### Query OK, 1 row affected (0.00 sec)
+###### Rows matched: 1  Changed: 1  Warnings: 0
+
+```SYNTAX
+UPDATE Events SET Event_Name = 'PMIT - PUBG MOBILE INDIA TOUR' WHERE ID = 'E2';
+```
+
+###### Query OK, 1 row affected (0.01 sec)
+###### Rows matched: 1  Changed: 1  Warnings: 0
+
+```SYNTAX
+UPDATE Events SET Event_Name = 'BGIS-BATTLEGROUND INDIA SERIES' WHERE ID = 'E3';
+```
+###### Query OK, 1 row affected (0.01 sec)
+###### Rows matched: 1  Changed: 1  Warnings: 0
+
+```SYNTAX
+ SELECT * FROM Events;
+```
+
+| ID | Image_URL                                              | Event_Name                     |
+|:---|:-------------------------------------------------------|:-------------------------------|
+| E1 | http://127.0.0.1:5500/assets/images/pmco.jpg           | PMCO - PUBG MOBILE CLUB OPENS  |
+| E2 | http://127.0.0.1:5500/assets/images/battlegrounds-.png | PMIT - PUBG MOBILE INDIA TOUR  |
+| E3 | http://127.0.0.1:5500/assets/images/app.png            | BGIS-BATTLEGROUND INDIA SERIES |
+
+
+###### 3 rows in set (0.00 sec)
+
+```SYNTAX
+DESC Registration_Form;
+```
+
+
+| Field                 | Type        | Null | Key | Default | Extra |
+|:----------------------|:------------|:-----|:----|:--------|:------|
+| Email_ID              | varchar(50) | YES  | UNI | NULL    |       |
+| Clan_Name             | varchar(50) | NO   | PRI | NULL    |       |
+| Team_Name             | varchar(50) | YES  | UNI | NULL    |       |
+| Player_1_IGN          | varchar(40) | YES  | UNI | NULL    |       |
+| Player_1_Character_ID | int         | YES  | UNI | NULL    |       |
+| Player_2_IGN          | varchar(40) | YES  | UNI | NULL    |       |
+| Player_2_Character_ID | int         | YES  | UNI | NULL    |       |
+| Player_3_IGN          | varchar(40) | YES  | UNI | NULL    |       |
+| Player_3_Character_ID | int         | YES  | UNI | NULL    |       |
+| Player_4_IGN          | varchar(40) | YES  | UNI | NULL    |       |
+| Player_4_Character_ID | int         | YES  | UNI | NULL    |       |
+| Player_5_IGN          | varchar(40) | YES  | UNI | NULL    |       |
+| Player_5_Character_ID | int         | YES  | UNI | NULL    |       |
+
+###### 13 rows in set (0.00 sec)
+
+```SYNTAX
+ALTER TABLE Registration_Form DROP PRIMARY KEY;
+```
+
+Query OK, 5 rows affected (0.34 sec)
+######  Records: 5  Duplicates: 0  Warnings: 0
+
+```SYNTAX
+ALTER TABLE Registration_Form MODIFY Clan_Name VARCHAR(50) NOT NULL;
+```
+######  Query OK, 0 rows affected (0.03 sec)
+######  Records: 0  Duplicates: 0  Warnings: 0
+
+```SYNTAX
+DESC Registration_Form;
+```
+
+
+| Field                 | Type        | Null | Key | Default | Extra |
+|:----------------------|:------------|:-----|:----|:--------|:------|
+| Email_ID              | varchar(50) | NO   | PRI | NULL    |       |
+| Clan_Name             | varchar(50) | NO   |     | NULL    |       |
+| Team_Name             | varchar(50) | YES  | UNI | NULL    |       |
+| Player_1_IGN          | varchar(40) | YES  | UNI | NULL    |       |
+| Player_1_Character_ID | int         | YES  | UNI | NULL    |       |
+| Player_2_IGN          | varchar(40) | YES  | UNI | NULL    |       |
+| Player_2_Character_ID | int         | YES  | UNI | NULL    |       |
+| Player_3_IGN          | varchar(40) | YES  | UNI | NULL    |       |
+| Player_3_Character_ID | int         | YES  | UNI | NULL    |       |
+| Player_4_IGN          | varchar(40) | YES  | UNI | NULL    |       |
+| Player_4_Character_ID | int         | YES  | UNI | NULL    |       |
+| Player_5_IGN          | varchar(40) | YES  | UNI | NULL    |       |
+| Player_5_Character_ID | int         | YES  | UNI | NULL    |       |
+
+###### 13 rows in set (0.00 sec)
+
+``SYNTAX
+ALTER TABLE  Registered_Users MODIFY Email_ID VARCHAR(50) UNIQUE;
+```
+###### Query OK, 0 rows affected (0.05 sec)
+###### Records: 0  Duplicates: 0  Warnings: 0
+
+```SYNTAX
+ALTER TABLE Registration_Form ADD FOREIGN KEY (Email_ID) REFERENCES Registered_Users(Email_ID);
+```
+###### Query OK, 5 rows affected (0.20 sec)
+###### Records: 5  Duplicates: 0  Warnings: 0
+
+```SYNTAX
+DESC Registered_Users;
+```
+
+
+| Field    | Type        | Null | Key | Default | Extra          |
+|:---------|:------------|:-----|:----|:--------|:---------------|
+| S_no     | int         | NO   | PRI | NULL    | auto_increment |
+| Email_ID | varchar(50) | YES  | UNI | NULL    |                |
+| User_ID  | int         | YES  |     | NULL    |                |
+| Password | varchar(20) | YES  |     | NULL    |                |
+
+###### 4 rows in set (0.01 sec)
+
+```SYNTAX
+CREATE TABLE Review (S_no INT , User_ID INT(8) PRIMARY KEY , Email_ID VARCHAR(50) UNIQUE , Feedbacks VARCHAR(50) NOT NULL );
+```
+###### Query OK, 0 rows affected, 1 warning (0.05 sec)
+
+```SYNTAX
+SHOW TABLES;
+```
+
+
+| Tables_in_Pubg_Tournament_App |
+|:------------------------------|
+| Achievements                  |
+| Added_Highlights              |
+| Contact_US                    |
+| Events                        |
+| List_OF_Queries               |
+| NEWS                          |
+| Notices                       |
+| Registered_Users              |
+| Registration_Form             |
+| Review                        |
+| UC_Purchased                  |
+
+###### 11 rows in set (0.01 sec)
+
+```SYNTAX
+DESC Review;
+```
+
+
+| Field     | Type        | Null | Key | Default | Extra |
+|:----------|:------------|:-----|:----|:--------|:------|
+| S_no      | int         | YES  |     | NULL    |       |
+| User_ID   | int         | NO   | PRI | NULL    |       |
+| Email_ID  | varchar(50) | YES  | UNI | NULL    |       |
+| Feedbacks | varchar(50) | NO   |     | NULL    |       |
+
+###### 4 rows in set (0.01 sec)
+
+```SYNTAX
+INSERT INTO Review VALUES (1,75849574,'rishijeeva13@gmail.com','I like this game very much');
+```
+
+###### Query OK, 1 row affected (0.01 sec)
+
+```SYNTAX
+ALTER TABLE Review RENAME TO Reviews;
+```
+
+###### Query OK, 0 rows affected (0.03 sec)
+
+```SYNTAX
+ALTER TABLE Reviews MODIFY Feedbacks VARCHAR(500) ;
+```
+
+###### Query OK, 1 row affected (0.12 sec)
+###### Records: 1  Duplicates: 0  Warnings: 0
+
+```SYNTAX
+INSERT INTO Reviews VALUES (2,78263876,'tt134@gmail.com','Can you add timer in this game it will be more intresting');
+```
+
+###### Query OK, 1 row affected (0.01 sec)
+
+```SYNTAX
+INSERT INTO Reviews VALUES (3,32487234,'ddfrever@gmail.com','Can you increase the teddy bear moving speed');
+```
+
+###### Query OK, 1 row affected (0.01 sec)
+
+```SYNTAX
+INSERT INTO Reviews VALUES (4,87346843,'rgeesports@gmail.com','Graphics is really good i litrally loved this game');
+```
+
+###### Query OK, 1 row affected (0.00 sec)
+
+```SYNTAX
+INSERT INTO Reviews VALUES (5,98346598,'blindesports@gmail.com','NO comments its good');
+```
+###### Query OK, 1 row affected (0.01 sec)
+
+```SYNTAX
+SELECT * FROM Reviews;
+```
+
+| S_no | User_ID  | Email_ID               | Feedbacks                                                 |
+|:-----|:---------|:-----------------------|:----------------------------------------------------------|
+|    3 | 32487234 | ddfrever@gmail.com     | Can you increase the teddy bear moving speed              |
+|    1 | 75849574 | rishijeeva13@gmail.com | I like this game very much                                |
+|    2 | 78263876 | tt134@gmail.com        | Can you add timer in this game it will be more intresting |
+|    4 | 87346843 | rgeesports@gmail.com   | Graphics is really good i litrally loved this game        |
+|    5 | 98346598 | blindesports@gmail.com | NO comments its good                                      |
+
+###### 5 rows in set (0.00 sec)
+
+
+
+
