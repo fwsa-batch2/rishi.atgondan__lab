@@ -23,7 +23,7 @@ SHOW DATABASES;
 | sys                 |
 | test                |
 
-13 rows in set (0.00 sec)
+###### 13 rows in set (0.00 sec)
 
 ```SYNTAX
 USE Pubg_Tournament_App;
@@ -58,7 +58,7 @@ DESC UC_Purchased;
 | User_ID            | int  | YES  |     | NULL    |                |
 | NO_OF_UC_Purchased | int  | YES  |     | NULL    |                |
 
-3 rows in set (0.00 sec)
+###### 3 rows in set (0.00 sec)
 
 
 ```SYNTAX
@@ -299,7 +299,7 @@ INSERT INTO Registration_Form VALUES
     -> 'DD_Tomtodp', 582378344,
     -> 'DD_Srinath',69270872 );
 ```
-
+###### Query OK, 1 row affected (0.01 sec)
 
 ```SYNTAX
 INSERT INTO Registration_Form VALUES
@@ -419,7 +419,7 @@ SELECT * FROM List_OF_Queries;
 |    4 | Which Phone will be provided on Finals? Please give us IPhone for finals |
 |    5 | Will you provide headphones in finals?                                   |
 
-5 rows in set (0.00 sec)
+###### 5 rows in set (0.00 sec)
 
 ```SYNTAX
 CREATE TABLE Add_Highlights (S_no INT PRIMARY KEY , Video_URL VARCHAR(100) , Description TEXT(500) );
@@ -438,7 +438,7 @@ SHOW TABLES;
 | Registration_Form             |
 | UC_Purchased                  |
 
-4 rows in set (0.00 sec)
+###### 4 rows in set (0.00 sec)
 
 ```SYNTAX
 DESC Add_Highlights;
@@ -451,7 +451,7 @@ DESC Add_Highlights;
 | Video_URL   | varchar(100) | YES  |     | NULL    |       |
 | Description | text         | YES  |     | NULL    |       |
 
-3 rows in set (0.00 sec)
+###### 3 rows in set (0.00 sec)
 
 ```SYNTAX
 INSERT INTO Add_Highlights VALUES (1,'https://www.youtube.com/embed/xyyAiRkABpk',' An 18 year under dog player from tamilnadu improving his skills by grinding.');
@@ -619,7 +619,7 @@ SELECT * FROM Contact_US;
 | Santhanu | sanboi1999@gmail.com   | 7647648733 | The news are old can you please update day to day news                                                                     |
 | Chithraj | spideyboy55@gmail.com  | 8765475786 | Shoot the teddy game was really good can you please update more games like this? thank you!!                               |
 
-5 rows in set (0.01 sec)
+###### 5 rows in set (0.01 sec)
 
 ```SYNTAX
 CREATE TABLE Registered_Users (S_no INT AUTO_INCREMENT PRIMARY KEY, Email_ID VARCHAR(50) , User_ID INT(8) , Password VARCHAR(20) );
@@ -685,7 +685,7 @@ UPDATE Registered_Users SET S_no = 4 WHERE S_no = 5;
 ```
 
 ###### Query OK, 1 row affected (0.01 sec)
-Rows matched: 1  Changed: 1  Warnings: 0
+###### Rows matched: 1  Changed: 1  Warnings: 0
 
 ```SYNTAX
 INSERT INTO Registered_Users VALUES (5,'blindesports@gmail.com',98346598,'blindesp@pubg');
@@ -729,14 +729,14 @@ UPDATE UC_Purchased SET User_ID = 75849574 WHERE S_no = 1;
 ```
 
 ###### Query OK, 1 row affected (0.01 sec)
-Rows matched: 1  Changed: 1  Warnings: 0
+###### Rows matched: 1  Changed: 1  Warnings: 0
 
 ```SYNTAX
 UPDATE UC_Purchased SET User_ID = 78263876 WHERE S_no = 2;
 ```
 
 ###### Query OK, 1 row affected (0.01 sec)
-Rows matched: 1  Changed: 1  Warnings: 0
+###### Rows matched: 1  Changed: 1  Warnings: 0
 
 
 ```SYNTAX
@@ -744,14 +744,14 @@ UPDATE UC_Purchased SET User_ID = 32487234 WHERE S_no = 3;
 ```
 
 ###### Query OK, 1 row affected (0.01 sec)
-Rows matched: 1  Changed: 1  Warnings: 0
+###### Rows matched: 1  Changed: 1  Warnings: 0
 
 ```SYNTAX
 UPDATE UC_Purchased SET User_ID = 87346843 WHERE S_no = 4;
 ```
 
 ###### Query OK, 1 row affected (0.01 sec)
-Rows matched: 1  Changed: 1  Warnings: 0
+###### Rows matched: 1  Changed: 1  Warnings: 0
 
 ```SYNTAX
 UPDATE UC_Purchased SET User_ID = 98346598 WHERE S_no = 5;
