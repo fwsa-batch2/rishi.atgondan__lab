@@ -182,75 +182,75 @@ DESC Registration_Form;
 ALTER TABLE Registration_Form MODIFY Email_ID VARCHAR(50) UNIQUE;
 ```
 ###### Query OK, 0 rows affected (0.06 sec)
-############  ###### Records: 0  Duplicates: 0  Warnings: 0
+###### Records: 0  Duplicates: 0  Warnings: 0
 
 ```SYNTAX
 ALTER TABLE Registration_Form MODIFY Team_Name VARCHAR(50) UNIQUE;
 ```
 ###### Query OK, 0 rows affected (0.07 sec)
-############  ###### Records: 0  Duplicates: 0  Warnings: 0
+###### Records: 0  Duplicates: 0  Warnings: 0
 
 ```SYNTAX
 ALTER TABLE Registration_Form MODIFY  Player_1_IGN VARCHAR(40) UNIQUE;
 ```
 ###### Query OK, 0 rows affected (0.05 sec)
-############  ###### Records: 0  Duplicates: 0  Warnings: 0
+###### Records: 0  Duplicates: 0  Warnings: 0
 
 ```SYNTAX
 ALTER TABLE Registration_Form MODIFY Player_1_Character_ID INT(8) UNIQUE;
 ```
 
 ###### Query OK, 0 rows affected, 1 warning (0.06 sec)
-############  ###### Records: 0  Duplicates: 0  Warnings: 1
+###### Records: 0  Duplicates: 0  Warnings: 1
 
 ```SYNTAX
 ALTER TABLE Registration_Form MODIFY Player_2_IGN VARCHAR(40) UNIQUE;
 ```
 
 ###### Query OK, 0 rows affected (0.07 sec)
-############  ###### Records: 0  Duplicates: 0  Warnings: 0
+###### Records: 0  Duplicates: 0  Warnings: 0
 
 ```SYNTAX
 ALTER TABLE Registration_Form MODIFY Player_2_Character_ID INT(8) UNIQUE;
 ```
 
 ###### Query OK, 0 rows affected, 1 warning (0.07 sec)
-############  ###### Records: 0  Duplicates: 0  Warnings: 1
+###### Records: 0  Duplicates: 0  Warnings: 1
 
 ```SYNTAX
 ALTER TABLE Registration_Form MODIFY Player_3_IGN VARCHAR(40) UNIQUE;
 ```
 
 ###### Query OK, 0 rows affected (0.06 sec)
-############  ###### Records: 0  Duplicates: 0  Warnings: 0
+###### Records: 0  Duplicates: 0  Warnings: 0
 
 ```SYNTAX
 ALTER TABLE Registration_Form MODIFY Player_3_Character_ID INT(8) UNIQUE;
 ```
 
 ###### Query OK, 0 rows affected, 1 warning (0.07 sec)
-############  ###### Records: 0  Duplicates: 0  Warnings: 1
+###### Records: 0  Duplicates: 0  Warnings: 1
 
 ```SYNTAX
 ALTER TABLE Registration_Form MODIFY Player_4_IGN VARCHAR(40) UNIQUE;
 ```
 
 ###### Query OK, 0 rows affected (0.06 sec)
-############  ###### Records: 0  Duplicates: 0  Warnings: 0
+###### Records: 0  Duplicates: 0  Warnings: 0
 
 ```SYNTAX
 ALTER TABLE Registration_Form MODIFY Player_4_Character_ID INT(8) UNIQUE;
 ```
 
 ###### Query OK, 0 rows affected, 1 warning (0.06 sec)
-############  ###### Records: 0  Duplicates: 0  Warnings: 1
+###### Records: 0  Duplicates: 0  Warnings: 1
 
 ```SYNTAX
 ALTER TABLE Registration_Form MODIFY Player_5_IGN VARCHAR(40) UNIQUE;
 ```
 
 ###### Query OK, 0 rows affected (0.07 sec)
-############  ###### Records: 0  Duplicates: 0  Warnings: 0
+###### Records: 0  Duplicates: 0  Warnings: 0
 
 
 ```SYNTAX
@@ -258,7 +258,7 @@ ALTER TABLE Registration_Form MODIFY Player_5_Character_ID INT(8) UNIQUE;
 ```
 
 ###### Query OK, 0 rows affected, 1 warning (0.06 sec)
-############  ###### Records: 0  Duplicates: 0  Warnings: 1
+###### Records: 0  Duplicates: 0  Warnings: 1
 
 ```SYNTAX
 INSERT INTO Registration_Form VALUES
@@ -273,7 +273,7 @@ INSERT INTO Registration_Form VALUES
 ```    
 
 ###### Query OK, 1 row affected (0.01 sec)
-###### 
+
 
 ```SYNTAX
 INSERT INTO Registration_Form VALUES
@@ -287,7 +287,7 @@ INSERT INTO Registration_Form VALUES
     -> 'Soul_viper',92374983 );
 ```
 ###### Query OK, 1 row affected (0.01 sec)
-###### 
+
 ```SYNTAX
 INSERT INTO Registration_Form VALUES
     -> ('ddfrever@gmail.com', 
@@ -300,8 +300,7 @@ INSERT INTO Registration_Form VALUES
     -> 'DD_Srinath',69270872 );
 ```
 
-###### Query OK, 1 row affected (0.01 sec)
-###### 
+
 ```SYNTAX
 INSERT INTO Registration_Form VALUES
     -> ('rgeesports@gmail.com', 
@@ -315,7 +314,7 @@ INSERT INTO Registration_Form VALUES
 ```
 
 ###### Query OK, 1 row affected (0.01 sec)
-###### 
+
 ```SYNTAX
 INSERT INTO Registration_Form VALUES
     -> ('blindesports@gmail.com', 
@@ -329,7 +328,7 @@ INSERT INTO Registration_Form VALUES
 ```
 
 ###### Query OK, 1 row affected (0.01 sec)
-###### 
+
 
 ```SYNTAX
 SELECT * FROM Registration_Form;
@@ -352,7 +351,6 @@ CREATE TABLE List_OF_Queries (S_no INT PRIMARY KEY, QUERIES VARCHAR(200));
 ```
 
 ###### Query OK, 0 rows affected (0.04 sec)
-###### 
 ```SYNTAX
 SHOW TABLES;
 ```
@@ -838,7 +836,7 @@ DESC NEWS;
 
 
 | Field  | Type        | Null | Key | Default | Extra |
-:--------:-------------|:-----|:----|:--------|:------|
+|:--------:------------|:-----|:----|:--------|:------|
 | ID     | varchar(50) | NO   | PRI | NULL    |       |
 | TOPICS | varchar(50) | NO   |     | NULL    |       |
 
