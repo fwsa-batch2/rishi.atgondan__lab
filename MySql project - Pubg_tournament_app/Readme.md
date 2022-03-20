@@ -1,8 +1,11 @@
-
+```SYNTAX
 CREATE DATABASE Pubg_Tournament_App;
+```
 Query OK, 1 row affected (0.01 sec)
 
+```SYNTAX
 SHOW DATABASES;
+```
 
 | Database            |
 |:--------------------|
@@ -27,11 +30,16 @@ USE Pubg_Tournament_App;
 ```
 Database changed
 
+```SYNTAX
 CREATE TABLE UC_Purchased (S_no INT AUTO_INCREMENT PRIMARY KEY , User_ID INT(8) , NO_OF_UC_Purchased INT );
+```
 Query OK, 0 rows affected, 1 warning (0.05 sec)
 
 
+```SYNTAX
 SHOW TABLES;
+```
+
 +-------------------------------+
 | Tables_in_Pubg_Tournament_App |
 +-------------------------------+
@@ -39,7 +47,10 @@ SHOW TABLES;
 +-------------------------------+
 1 row in set (0.01 sec)
 
+```SYNTAX
 DESC UC_Purchased;
+```
+
 +--------------------+------+------+-----+---------+----------------+
 | Field              | Type | Null | Key | Default | Extra          |
 +--------------------+------+------+-----+---------+----------------+
@@ -50,37 +61,59 @@ DESC UC_Purchased;
 3 rows in set (0.00 sec)
 
 
+```SYNTAX
 INSERT INTO UC_Purchased (S_no,User_ID,NO_OF_UC_Purchased) values (1,73832675,60);
+```
 Query OK, 1 row affected (0.01 sec)
 
+```SYNTAX
 INSERT INTO UC_Purchased (S_no,User_ID,NO_OF_UC_Purchased) values (2,98248954,60);
+```
 Query OK, 1 row affected (0.01 sec)
 
+```SYNTAX
 INSERT INTO UC_Purchased (S_no,User_ID,NO_OF_UC_Purchased) values (3,86249823,1800);
+```
 Query OK, 1 row affected (0.01 sec)
 
+```SYNTAX
 INSERT INTO UC_Purchased (S_no,User_ID,NO_OF_UC_Purchased) values (4,82364968,3500);
+```
 Query OK, 1 row affected (0.00 sec)
 
+```SYNTAX
 INSERT INTO UC_Purchased (S_no,User_ID,NO_OF_UC_Purchased) values (5,98739847,300);
+```
 Query OK, 1 row affected (0.01 sec)
 
+```SYNTAX
 INSERT INTO UC_Purchased (S_no,User_ID,NO_OF_UC_Purchased) values (6,98748923,600);
+```
 Query OK, 1 row affected (0.01 sec)
 
+```SYNTAX
 INSERT INTO UC_Purchased (S_no,User_ID,NO_OF_UC_Purchased) values (7,99932844,6200);
+```
 Query OK, 1 row affected (0.01 sec)
 
+```SYNTAX
 INSERT INTO UC_Purchased (S_no,User_ID,NO_OF_UC_Purchased) values (8,69269827,60);
+```
 Query OK, 1 row affected (0.00 sec)
 
+```SYNTAX
 INSERT INTO UC_Purchased (S_no,User_ID,NO_OF_UC_Purchased) values (9,72983479,3500);
+```
 Query OK, 1 row affected (0.01 sec)
 
+```SYNTAX
 INSERT INTO UC_Purchased (S_no,User_ID,NO_OF_UC_Purchased) values (10,4756778,600);
+```
 Query OK, 1 row affected (0.01 sec)
 
-select * from UC_Purchased;
+```SYNTAX
+SELECT * FROM UC_Purchased;
+```
 +------+----------+--------------------+
 | S_no | User_ID  | NO_OF_UC_Purchased |
 +------+----------+--------------------+
@@ -98,7 +131,7 @@ select * from UC_Purchased;
 10 rows in set (0.01 sec)
 
 
-
+```SYNTAX
 CREATE TABLE Registration_Form
     -> (Email_ID VARCHAR(50),
     -> Clan_Name VARCHAR(50) PRIMARY KEY ,
@@ -108,9 +141,13 @@ CREATE TABLE Registration_Form
     -> Player_3_IGN VARCHAR(40) , Player_3_Character_ID INT(8) ,
     -> Player_4_IGN VARCHAR(40) , Player_4_Character_ID INT(8),
     -> Player_5_IGN VARCHAR(40) , Player_5_Character_ID INT(8) );
+```
+
 Query OK, 0 rows affected, 5 warnings (0.04 sec)
 
-show tables;
+```SYNTAX
+SHOW TABLES;
+```
 +-------------------------------+
 | Tables_in_Pubg_Tournament_App |
 +-------------------------------+
