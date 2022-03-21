@@ -1,3 +1,8 @@
+# CREATING A DATABASE AS PUBG_TOURNAMENT_APP
+## HELLO
+### HEY
+
+
 ```sql
 CREATE DATABASE Pubg_Tournament_App;
 ```
