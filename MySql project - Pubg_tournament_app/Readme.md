@@ -31,86 +31,107 @@ USE Pubg_Tournament_App;
 Database changed
 
 ```SYNTAX
-CREATE TABLE UC_Purchased (S_no INT AUTO_INCREMENT PRIMARY KEY , User_ID INT(8) , NO_OF_UC_Purchased INT );
+CREATE TABLE Registered_Users (S_no INT AUTO_INCREMENT PRIMARY KEY, Email_ID VARCHAR(50) , User_ID INT(8) , Password VARCHAR(20) );
 ```
+
 ###### Query OK, 0 rows affected, 1 warning (0.05 sec)
-###### 
 
 ```SYNTAX
 SHOW TABLES;
 ```
 
+| Tables_in_Pubg_Tournament_App |
+|:------------------------------|
+| Registered_Users              |
+
+###### 1 rows in set (0.01 sec)
+
+```SYNTAX
+DESC Registered_Users;
+```
+
+
+| Field    | Type        | Null | Key | Default | Extra          |
+|:---------|:------------|:-----|:----|:--------|:---------------|
+| S_no     | int         | NO   | PRI | NULL    | auto_increment |
+| Email_ID | varchar(50) | YES  |     | NULL    |                |
+| User_ID  | int         | YES  |     | NULL    |                |
+| Password | varchar(20) | YES  |     | NULL    |                |
+
+###### 4 rows in set (0.01 sec)
+
+```SYNTAX
+INSERT INTO Registered_Users VALUES (1,'rishijeeva13@gmail.com',75849574,'Soul@pubg');
+```
+
+###### Query OK, 1 row affected (0.01 sec)
+
+```SYNTAX
+INSERT INTO Registered_Users VALUES (2,'tt134@gmail.com',78263876,'ttz@pubg');
+```
+
+###### Query OK, 1 row affected (0.01 sec)
+
+```SYNTAX
+INSERT INTO Registered_Users VALUES (3,'ddfrever@gmail.com',32487234,'dds1122@pubg');
+```
+
+###### Query OK, 1 row affected (0.01 sec)
+
+```SYNTAX
+INSERT INTO Registered_Users VALUES (5,'rgeesports@gmail.com',87346843,'rgekillerz@pubg');
+```
+
+###### Query OK, 1 row affected (0.02 sec)
+
+```SYNTAX
+UPDATE Registered_Users SET S_no = 4 WHERE S_no = 5;
+```
+
+###### Query OK, 1 row affected (0.01 sec)
+###### Rows matched: 1  Changed: 1  Warnings: 0
+
+```SYNTAX
+INSERT INTO Registered_Users VALUES (5,'blindesports@gmail.com',98346598,'blindesp@pubg');
+```
+###### Query OK, 1 row affected (0.01 sec)
+
+```SYNTAX
+SELECT * FROM Registered_Users;
+```
+| S_no | Email_ID               | User_ID  | Password        |
+|:-----|:-----------------------|:---------|:----------------|
+|    1 | rishijeeva13@gmail.com | 75849574 | Soul@pubg       |
+|    2 | tt134@gmail.com        | 78263876 | ttz@pubg        |
+|    3 | ddfrever@gmail.com     | 32487234 | dds1122@pubg    |
+|    4 | rgeesports@gmail.com   | 87346843 | rgekillerz@pubg |
+|    5 | blindesports@gmail.com | 98346598 | blindesp@pubg   |
+
+```SYNTAX
+CREATE TABLE UC_Purchased (S_no INT , User_ID INT(8) , NO_OF_UC_Purchased INT ,FOREIGN KEY (S_no) REFERENCES Registered_Users(S_no));\\
+```
+SHOW TABLES;
 
 | Tables_in_Pubg_Tournament_App |
 |:------------------------------|
+| Registered_Users              |
 | UC_Purchased                  |
 
-###### 1 row in set (0.01 sec)
+###### 11 rows in set (0.01 sec)
+
 
 ```SYNTAX
 DESC UC_Purchased;
 ```
 
+| Field              | Type | Null | Key | Default | Extra |
+|:-------------------|:-----|:-----|:----|:--------|:------|
+| S_no               | int  | YES  | MUL | NULL    |       |
+| User_ID            | int  | YES  |     | NULL    |       |
+| NO_OF_UC_Purchased | int  | YES  |     | NULL    |       |
 
-| Field              | Type | Null | Key | Default | Extra          |
-|--------------------|:-----|:-----|:----|:--------|:---------------|
-| S_no               | int  | NO   | PRI | NULL    | auto_increment |
-| User_ID            | int  | YES  |     | NULL    |                |
-| NO_OF_UC_Purchased | int  | YES  |     | NULL    |                |
+###### 3 rows in set (0.01 sec)
 
-###### 3 rows in set (0.00 sec)
-
-
-```SYNTAX
-INSERT INTO UC_Purchased (S_no,User_ID,NO_OF_UC_Purchased) values (1,73832675,60);
-```
-###### Query OK, 1 row affected (0.01 sec)
-###### 
-```SYNTAX
-INSERT INTO UC_Purchased (S_no,User_ID,NO_OF_UC_Purchased) values (2,98248954,60);
-```
-###### Query OK, 1 row affected (0.01 sec)
-###### 
-```SYNTAX
-INSERT INTO UC_Purchased (S_no,User_ID,NO_OF_UC_Purchased) values (3,86249823,1800);
-```
-###### Query OK, 1 row affected (0.01 sec)
-###### 
-```SYNTAX
-INSERT INTO UC_Purchased (S_no,User_ID,NO_OF_UC_Purchased) values (4,82364968,3500);
-```
-###### Query OK, 1 row affected (0.00 sec)
-###### 
-```SYNTAX
-INSERT INTO UC_Purchased (S_no,User_ID,NO_OF_UC_Purchased) values (5,98739847,300);
-```
-###### Query OK, 1 row affected (0.01 sec)
-###### 
-```SYNTAX
-INSERT INTO UC_Purchased (S_no,User_ID,NO_OF_UC_Purchased) values (6,98748923,600);
-```
-###### Query OK, 1 row affected (0.01 sec)
-###### 
-```SYNTAX
-INSERT INTO UC_Purchased (S_no,User_ID,NO_OF_UC_Purchased) values (7,99932844,6200);
-```
-###### Query OK, 1 row affected (0.01 sec)
-###### 
-```SYNTAX
-INSERT INTO UC_Purchased (S_no,User_ID,NO_OF_UC_Purchased) values (8,69269827,60);
-```
-###### Query OK, 1 row affected (0.00 sec)
-###### 
-```SYNTAX
-INSERT INTO UC_Purchased (S_no,User_ID,NO_OF_UC_Purchased) values (9,72983479,3500);
-```
-###### Query OK, 1 row affected (0.01 sec)
-###### 
-```SYNTAX
-INSERT INTO UC_Purchased (S_no,User_ID,NO_OF_UC_Purchased) values (10,4756778,600);
-```
-###### Query OK, 1 row affected (0.01 sec)
-###### 
 ```SYNTAX
 SELECT * FROM UC_Purchased;
 ```
@@ -122,13 +143,9 @@ SELECT * FROM UC_Purchased;
 |    3 | 86249823 |               1800 |
 |    4 | 82364968 |               3500 |
 |    5 | 98739847 |                300 |
-|    6 | 98748923 |                600 |
-|    7 | 99932844 |               6200 |
-|    8 | 69269827 |                 60 |
-|    9 | 72983479 |               3500 |
-|   10 |  4756778 |                600 |
 
-###### 10 rows in set (0.01 sec)
+###### 5 rows in set (0.00 sec)
+
 
 
 ```SYNTAX
@@ -153,6 +170,8 @@ SHOW TABLES;
 |:------------------------------|
 | Registration_Form             |
 | UC_Purchased                  |
+| Registered_Users              |
+
 
 
 ```SYNTAX
@@ -176,7 +195,7 @@ DESC Registration_Form;
 | Player_5_IGN          | varchar(40) | YES  | UNI | NULL    |       |
 | Player_5_Character_ID | int         | YES  | UNI | NULL    |       |
 
-13 rows in set (0.00 sec)
+###### 13 rows in set (0.00 sec)
 
 ```SYNTAX
 ALTER TABLE Registration_Form MODIFY Email_ID VARCHAR(50) UNIQUE;
@@ -345,6 +364,86 @@ SELECT * FROM Registration_Form;
 
 ###### 5 rows in set (0.00 sec)
 
+```SYNTAX
+ALTER TABLE Registration_Form ADD COLUMN S_no INT(50) AFTER Email_ID;
+```
+
+######  Query OK, 0 rows affected, 1 warning (0.31 sec)
+Records: 0  Duplicates: 0  Warnings: 1
+
+```SYNTAX
+ALTER TABLE Registration_Form MODIFY Email_ID VARCHAR(50)  AFTER S_no;
+```
+
+######  Query OK, 0 rows affected (0.29 sec)
+######  Records: 0  Duplicates: 0  Warnings: 0
+
+```SYNTAX
+SELECT * FROM Registration_Form;
+```
+
+
+| S_no | Email_ID               | Clan_Name         | Team_Name        | Player_1_IGN | Player_1_Character_ID | Player_2_IGN | Player_2_Character_ID | Player_3_IGN | Player_3_Character_ID | Player_4_IGN  | Player_4_Character_ID | Player_5_IGN  | Player_5_Character_ID |
+|:-----|:-----------------------|:------------------|:-----------------|:-------------|:----------------------|:-------------|:----------------------|:-------------|:----------------------|:--------------|:----------------------|:--------------|:----------------------|
+| NULL | blindesports@gmail.com | Blind_esports     | Team_blind       | Blind_psycho |              98346598 | Blind_nivin  |              92790724 | Blind_denver |              83745485 | Blind_Frink   |              98273843 | Blind_SpyOP   |              98437587 |
+| NULL | ddfrever@gmail.com     | Dead_Elites       | Dead_Elites_Real | DD_Daxter    |              32487234 | DD_Aceop     |              98475897 | DD_Maddyftw  |              98237474 | DD_Tomtodp    |             582378344 | DD_Srinath    |              69270872 |
+| NULL | rgeesports@gmail.com   | Recokning_esports | Team_RGE         | RGE_Abrar    |              87346843 | RGE_Maxy     |              98475874 | RGE_Spray    |              34876237 | RGE_BeardBaba |              98724987 | RGE_EvilSurya |              98347859 |
+| NULL | rishijeeva13@gmail.com | Soul              | Rising_soul      | Soul_mortal  |              75849574 | Soul_viper   |              64738297 | Soul_ronak   |              73829374 | Soul_owais    |              64738294 | Soul_regaltos |              74839276 |
+| NULL | tt134@gmail.com        | Tamilanz          | OG_Tamilanz      | Tamil_brainy |              78263876 | Tamil_macan  |              97239723 | Tamil_nandha |              89273892 | Tamil_aakash  |              87459827 | Soul_viper    |              92374983 |
+
+5 rows in set (0.00 sec)
+
+```SYNTAX
+UPDATE Registration_Form SET S_no = 1 WHERE Clan_Name = 'Blind_esports';
+```
+
+######  Query OK, 1 row affected (0.01 sec)
+###### Rows matched: 1  Changed: 1  Warnings: 0
+
+```SYNTAX
+UPDATE Registration_Form SET S_no = 2 WHERE Clan_Name = 'Dead_Elites';
+```
+
+######  Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+```SYNTAX
+UPDATE Registration_Form SET S_no = 3 WHERE Clan_Name = 'Recokning_esports';
+```
+
+######  Query OK, 1 row affected (0.01 sec)
+######  Rows matched: 1  Changed: 1  Warnings: 0
+
+```SYNTAX
+UPDATE Registration_Form SET S_no = 4 WHERE Clan_Name = 'Soul';
+```
+
+###### Query OK, 1 row affected (0.01 sec)
+###### Rows matched: 1  Changed: 1  Warnings: 0
+
+```SYNTAX
+UPDATE Registration_Form SET S_no = 5 WHERE Clan_Name = 'Tamilanz';
+```
+
+###### Query OK, 1 row affected (0.00 sec)
+###### Rows matched: 1  Changed: 1  Warnings: 0
+
+```SYNTAX
+ SELECT * FROM Registration_Form;
+ ```
+
+
+| S_no | Email_ID               | Clan_Name         | Team_Name        | Player_1_IGN | Player_1_Character_ID | Player_2_IGN | Player_2_Character_ID | Player_3_IGN | Player_3_Character_ID | Player_4_IGN  | Player_4_Character_ID | Player_5_IGN  | Player_5_Character_ID |
+|:-----|:-----------------------|:------------------|:-----------------|:-------------|:----------------------|:-------------|:----------------------|:-------------|:----------------------|:--------------|:----------------------|:--------------|:----------------------|
+|    1 | blindesports@gmail.com | Blind_esports     | Team_blind       | Blind_psycho |              98346598 | Blind_nivin  |              92790724 | Blind_denver |              83745485 | Blind_Frink   |              98273843 | Blind_SpyOP   |              98437587 |
+|    2 | ddfrever@gmail.com     | Dead_Elites       | Dead_Elites_Real | DD_Daxter    |              32487234 | DD_Aceop     |              98475897 | DD_Maddyftw  |              98237474 | DD_Tomtodp    |             582378344 | DD_Srinath    |              69270872 |
+|    3 | rgeesports@gmail.com   | Recokning_esports | Team_RGE         | RGE_Abrar    |              87346843 | RGE_Maxy     |              98475874 | RGE_Spray    |              34876237 | RGE_BeardBaba |              98724987 | RGE_EvilSurya |              98347859 |
+|    4 | rishijeeva13@gmail.com | Soul              | Rising_soul      | Soul_mortal  |              75849574 | Soul_viper   |              64738297 | Soul_ronak   |              73829374 | Soul_owais    |              64738294 | Soul_regaltos |              74839276 |
+|    5 | tt134@gmail.com        | Tamilanz          | OG_Tamilanz      | Tamil_brainy |              78263876 | Tamil_macan  |              97239723 | Tamil_nandha |              89273892 | Tamil_aakash  |              87459827 | Soul_viper    |              92374983 |
+
+###### 5 rows in set (0.00 sec)
+
+
 
 ```SYNTAX
 CREATE TABLE List_OF_Queries (S_no INT PRIMARY KEY, QUERIES VARCHAR(200));
@@ -359,7 +458,9 @@ SHOW TABLES;
 |:------------------------------|
 | List_OF_Queries               |
 | Registration_Form             |
+| Registered_Users              |
 | UC_Purchased                  |
+
 
 ###### 3 rows in set (0.01 sec)
 
@@ -422,6 +523,119 @@ SELECT * FROM List_OF_Queries;
 ###### 5 rows in set (0.00 sec)
 
 ```SYNTAX
+ALTER TABLE List_OF_Queries ADD Email_ID VARCHAR(50);
+```
+
+Query OK, 0 rows affected (0.04 sec)
+###### Records: 0  Duplicates: 0  Warnings: 0
+
+```SYNTAX
+ALTER TABLE List_OF_Queries ADD FOREIGN KEY (Email_ID) REFERENCES Registered_Users(Email_ID);
+```
+
+###### Query OK, 5 rows affected (0.13 sec)
+###### Records: 5  Duplicates: 0  Warnings: 0
+
+
+```SYNTAX
+DESC List_OF_Queries;
+```
+
+
+| Field    | Type         | Null | Key | Default | Extra |
+|:---------|:-------------|:-----|:----|:--------|:------|
+| S_no     | int          | NO   | PRI | NULL    |       |
+| QUERIES  | varchar(200) | YES  |     | NULL    |       |
+| Email_ID | varchar(50)  | YES  | MUL | NULL    |       |
+
+3 rows in set (0.01 sec)
+
+```SYNTAX
+ALTER TABLE List_OF_Queries MODIFY QUERIES varchar(200) AFTER Email_ID;
+``` 
+
+###### Query OK, 0 rows affected (0.11 sec)
+###### Records: 0  Duplicates: 0  Warnings: 0
+
+```SYNTAX
+DESC List_OF_Queries;
+```
+
+
+| Field    | Type         | Null | Key | Default | Extra |
+|:---------|:-------------|:-----|:----|:--------|:------|
+| S_no     | int          | NO   | PRI | NULL    |       |
+| Email_ID | varchar(50)  | YES  | MUL | NULL    |       |
+| QUERIES  | varchar(200) | YES  |     | NULL    |       |
+
+###### 3 rows in set (0.00 sec)
+
+```SYNTAX
+SELECT * FROM List_OF_Queries;
+```
+
+
+| S_no | Email_ID | QUERIES                                                                  |
+|:-----|:---------|:-------------------------------------------------------------------------|
+|    1 | NULL     | Can you say which maps will be played in qualifiers                      |
+|    2 | NULL     | Is there a wild card entry for any teams?                                |
+|    3 | NULL     | Can we use triggers in tournament ?                                      |
+|    4 | NULL     | Which Phone will be provided on Finals? Please give us IPhone for finals |
+|    5 | NULL     | Will you provide headphones in finals?                                   |
+
+###### 5 rows in set (0.00 sec)
+
+```SYNTAX
+UPDATE List_OF_Queries SET Email_ID = 'rishijeeva13@gmail.com' WHERE S_no = 1;
+```
+
+###### Query OK, 1 row affected (0.01 sec)
+###### Rows matched: 1  Changed: 1  Warnings: 0
+
+```SYNTAX
+UPDATE List_OF_Queries SET Email_ID = 'tt134@gmail.com' WHERE S_no = 2;
+```
+
+###### Query OK, 1 row affected (0.01 sec)
+###### Rows matched: 1  Changed: 1  Warnings: 0
+
+```SYNTAX
+UPDATE List_OF_Queries SET Email_ID = 'ddfrever@gmail.com' WHERE S_no = 3;
+```
+
+###### Query OK, 1 row affected (0.00 sec)
+###### Rows matched: 1  Changed: 1  Warnings: 0
+
+```SYNTAX
+UPDATE List_OF_Queries SET Email_ID = 'rgeesports@gmail.com' WHERE S_no = 4;
+```
+
+###### Query OK, 1 row affected (0.02 sec)
+###### Rows matched: 1  Changed: 1  Warnings: 0
+
+```SYNTAX
+UPDATE List_OF_Queries SET Email_ID = 'blindesports@gmail.com' WHERE S_no = 5;
+```
+
+###### Query OK, 1 row affected (0.01 sec)
+###### Rows matched: 1  Changed: 1  Warnings: 0
+
+```SYNTAX
+SELECT * FROM List_OF_Queries;
+```
+
+| S_no | Email_ID               | QUERIES                                                                  |
+|:-----|:-----------------------|:-------------------------------------------------------------------------|
+|    1 | rishijeeva13@gmail.com | Can you say which maps will be played in qualifiers                      |
+|    2 | tt134@gmail.com        | Is there a wild card entry for any teams?                                |
+|    3 | ddfrever@gmail.com     | Can we use triggers in tournament ?                                      |
+|    4 | rgeesports@gmail.com   | Which Phone will be provided on Finals? Please give us IPhone for finals |
+|    5 | blindesports@gmail.com | Will you provide headphones in finals?                                   |
+
+###### 5 rows in set (0.00 sec)
+
+
+```SYNTAX
 CREATE TABLE Add_Highlights (S_no INT PRIMARY KEY , Video_URL VARCHAR(100) , Description TEXT(500) );
 ```
 
@@ -436,6 +650,7 @@ SHOW TABLES;
 | Add_Highlights                |
 | List_OF_Queries               |
 | Registration_Form             |
+| Registered_Users              |
 | UC_Purchased                  |
 
 ###### 4 rows in set (0.00 sec)
@@ -522,7 +737,9 @@ SHOW TABLES;
 | Contact_US                    |
 | List_OF_Queries               |
 | Registration_Form             |
+| Registered_Users              |
 | UC_Purchased                  |
+
 
 ###### 5 rows in set (0.01 sec)
 
@@ -620,146 +837,6 @@ SELECT * FROM Contact_US;
 | Chithraj | spideyboy55@gmail.com  | 8765475786 | Shoot the teddy game was really good can you please update more games like this? thank you!!                               |
 
 ###### 5 rows in set (0.01 sec)
-
-```SYNTAX
-CREATE TABLE Registered_Users (S_no INT AUTO_INCREMENT PRIMARY KEY, Email_ID VARCHAR(50) , User_ID INT(8) , Password VARCHAR(20) );
-```
-
-###### Query OK, 0 rows affected, 1 warning (0.05 sec)
-
-```SYNTAX
-SHOW TABLES;
-```
-
-| Tables_in_Pubg_Tournament_App |
-|:------------------------------|
-| Added_Highlights              |
-| Contact_US                    |
-| List_OF_Queries               |
-| Registered_Users              |
-| Registration_Form             |
-| UC_Purchased                  |
-
-###### 6 rows in set (0.01 sec)
-
-```SYNTAX
-DESC Registered_Users;
-```
-
-
-| Field    | Type        | Null | Key | Default | Extra          |
-|:---------|:------------|:-----|:----|:--------|:---------------|
-| S_no     | int         | NO   | PRI | NULL    | auto_increment |
-| Email_ID | varchar(50) | YES  |     | NULL    |                |
-| User_ID  | int         | YES  |     | NULL    |                |
-| Password | varchar(20) | YES  |     | NULL    |                |
-
-###### 4 rows in set (0.01 sec)
-
-```SYNTAX
-INSERT INTO Registered_Users VALUES (1,'rishijeeva13@gmail.com',75849574,'Soul@pubg');
-```
-
-###### Query OK, 1 row affected (0.01 sec)
-
-```SYNTAX
-INSERT INTO Registered_Users VALUES (2,'tt134@gmail.com',78263876,'ttz@pubg');
-```
-
-###### Query OK, 1 row affected (0.01 sec)
-
-```SYNTAX
-INSERT INTO Registered_Users VALUES (3,'ddfrever@gmail.com',32487234,'dds1122@pubg');
-```
-
-###### Query OK, 1 row affected (0.01 sec)
-
-```SYNTAX
-INSERT INTO Registered_Users VALUES (5,'rgeesports@gmail.com',87346843,'rgekillerz@pubg');
-```
-
-###### Query OK, 1 row affected (0.02 sec)
-
-```SYNTAX
-UPDATE Registered_Users SET S_no = 4 WHERE S_no = 5;
-```
-
-###### Query OK, 1 row affected (0.01 sec)
-###### Rows matched: 1  Changed: 1  Warnings: 0
-
-```SYNTAX
-INSERT INTO Registered_Users VALUES (5,'blindesports@gmail.com',98346598,'blindesp@pubg');
-```
-###### Query OK, 1 row affected (0.01 sec)
-
-```SYNTAX
-SELECT * FROM Registered_Users;
-```
-| S_no | Email_ID               | User_ID  | Password        |
-|:-----|:-----------------------|:---------|:----------------|
-|    1 | rishijeeva13@gmail.com | 75849574 | Soul@pubg       |
-|    2 | tt134@gmail.com        | 78263876 | ttz@pubg        |
-|    3 | ddfrever@gmail.com     | 32487234 | dds1122@pubg    |
-|    4 | rgeesports@gmail.com   | 87346843 | rgekillerz@pubg |
-|    5 | blindesports@gmail.com | 98346598 | blindesp@pubg   |
-
-###### 5 rows in set (0.00 sec)
-
-```SYNTAX
-SELECT * FROM UC_Purchased;
-```
-
-| S_no | User_ID  | NO_OF_UC_Purchased |
-|:-----|:---------|:-------------------|
-|    1 | 73832675 |                 60 |
-|    2 | 98248954 |                 60 |
-|    3 | 86249823 |               1800 |
-|    4 | 82364968 |               3500 |
-|    5 | 98739847 |                300 |
-|    6 | 98748923 |                600 |
-|    7 | 99932844 |               6200 |
-|    8 | 69269827 |                 60 |
-|    9 | 72983479 |               3500 |
-|   10 |  4756778 |                600 |
-
-###### 10 rows in set (0.01 sec)
-
-```SYNTAX
-UPDATE UC_Purchased SET User_ID = 75849574 WHERE S_no = 1;
-```
-
-###### Query OK, 1 row affected (0.01 sec)
-###### Rows matched: 1  Changed: 1  Warnings: 0
-
-```SYNTAX
-UPDATE UC_Purchased SET User_ID = 78263876 WHERE S_no = 2;
-```
-
-###### Query OK, 1 row affected (0.01 sec)
-###### Rows matched: 1  Changed: 1  Warnings: 0
-
-
-```SYNTAX
-UPDATE UC_Purchased SET User_ID = 32487234 WHERE S_no = 3;
-```
-
-###### Query OK, 1 row affected (0.01 sec)
-###### Rows matched: 1  Changed: 1  Warnings: 0
-
-```SYNTAX
-UPDATE UC_Purchased SET User_ID = 87346843 WHERE S_no = 4;
-```
-
-###### Query OK, 1 row affected (0.01 sec)
-###### Rows matched: 1  Changed: 1  Warnings: 0
-
-```SYNTAX
-UPDATE UC_Purchased SET User_ID = 98346598 WHERE S_no = 5;
-```
-
-###### Query OK, 1 row affected (0.01 sec)
-###### Rows matched: 1  Changed: 1  Warnings: 0
-
 
 
 ```SYNTAX
