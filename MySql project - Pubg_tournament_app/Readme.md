@@ -1,7 +1,4 @@
 # CREATING A DATABASE AS PUBG_TOURNAMENT_APP
-## HELLO
-### HEY
-
 
 ```sql
 CREATE DATABASE Pubg_Tournament_App;
@@ -35,6 +32,8 @@ USE Pubg_Tournament_App;
 ```
 Database changed
 
+## CREATING A TABLE AS REGISTERED_USERS THAT PLAYERS VALUES HAS BEEN STORED
+
 ```sql
 CREATE TABLE Registered_Users (S_no INT AUTO_INCREMENT PRIMARY KEY, Email_ID VARCHAR(50) , User_ID INT(8) , Password VARCHAR(20) );
 ```
@@ -64,6 +63,8 @@ DESC Registered_Users;
 | Password | varchar(20) | YES  |     | NULL    |                |
 
 ###### 4 rows in set (0.01 sec)
+
+### INSERTING SOME USER VALUES IN THE TABLE
 
 ```sql
 INSERT INTO Registered_Users VALUES (1,'rishijeeva13@gmail.com',75849574,'Soul@pubg');
@@ -112,6 +113,9 @@ SELECT * FROM Registered_Users;
 |    4 | rgeesports@gmail.com   | 87346843 | rgekillerz@pubg |
 |    5 | blindesports@gmail.com | 98346598 | blindesp@pubg   |
 
+
+## CREATING A TABLE AS UC_PURCHASED SO PLAYERS WHO BUYS UC WILL BE STORED HERE
+
 ```sql
 CREATE TABLE UC_Purchased (S_no INT , User_ID INT(8) , NO_OF_UC_Purchased INT ,FOREIGN KEY (S_no) REFERENCES Registered_Users(S_no));\\
 ```
@@ -137,6 +141,8 @@ DESC UC_Purchased;
 
 ###### 3 rows in set (0.01 sec)
 
+### INSERTING SOME USER VALUES IN THE TABLE
+
 ```sql
 SELECT * FROM UC_Purchased;
 ```
@@ -151,7 +157,7 @@ SELECT * FROM UC_Purchased;
 
 ###### 5 rows in set (0.00 sec)
 
-
+# CREATING A TABLE FOR WHERE THE TOURNAMENTS REGISTRATION FORM CAN BE STORED
 
 ```sql
 CREATE TABLE Registration_Form
@@ -201,6 +207,8 @@ DESC Registration_Form;
 | Player_5_Character_ID | int         | YES  | UNI | NULL    |       |
 
 ###### 13 rows in set (0.00 sec)
+
+## ALTERING THE TABLE AND MODIFYING SOME FIELD AS UNIQUE CONSTRAINT
 
 ```sql
 ALTER TABLE Registration_Form MODIFY Email_ID VARCHAR(50) UNIQUE;
@@ -283,6 +291,8 @@ ALTER TABLE Registration_Form MODIFY Player_5_Character_ID INT(8) UNIQUE;
 
 ###### Query OK, 0 rows affected, 1 warning (0.06 sec)
 ###### Records: 0  Duplicates: 0  Warnings: 1
+
+## INSERTING SOME VALUES IN THIS TABLE
 
 ```sql
 INSERT INTO Registration_Form VALUES
@@ -369,12 +379,14 @@ SELECT * FROM Registration_Form;
 
 ###### 5 rows in set (0.00 sec)
 
+## ADDING COLUMN S_NO IN THIS TABLE BECAUSE FOR BETTER RELATION WITH PRIMARY KEY USING FOREIGN KEY
+
 ```sql
 ALTER TABLE Registration_Form ADD COLUMN S_no INT(50) AFTER Email_ID;
 ```
 
 ######  Query OK, 0 rows affected, 1 warning (0.31 sec)
-Records: 0  Duplicates: 0  Warnings: 1
+###### Records: 0  Duplicates: 0  Warnings: 1
 
 ```sql
 ALTER TABLE Registration_Form MODIFY Email_ID VARCHAR(50)  AFTER S_no;
@@ -397,6 +409,8 @@ SELECT * FROM Registration_Form;
 | NULL | tt134@gmail.com        | Tamilanz          | OG_Tamilanz      | Tamil_brainy |              78263876 | Tamil_macan  |              97239723 | Tamil_nandha |              89273892 | Tamil_aakash  |              87459827 | Soul_viper    |              92374983 |
 
 5 rows in set (0.00 sec)
+
+## UPDATING S_NO ON THE TABLE
 
 ```sql
 UPDATE Registration_Form SET S_no = 1 WHERE Clan_Name = 'Blind_esports';
@@ -448,7 +462,87 @@ UPDATE Registration_Form SET S_no = 5 WHERE Clan_Name = 'Tamilanz';
 
 ###### 5 rows in set (0.00 sec)
 
+```sql
+DESC Registration_Form;
+```
 
+
+| Field                 | Type        | Null | Key | Default | Extra |
+|:----------------------|:------------|:-----|:----|:--------|:------|
+| Email_ID              | varchar(50) | YES  | UNI | NULL    |       |
+| Clan_Name             | varchar(50) | NO   | PRI | NULL    |       |
+| Team_Name             | varchar(50) | YES  | UNI | NULL    |       |
+| Player_1_IGN          | varchar(40) | YES  | UNI | NULL    |       |
+| Player_1_Character_ID | int         | YES  | UNI | NULL    |       |
+| Player_2_IGN          | varchar(40) | YES  | UNI | NULL    |       |
+| Player_2_Character_ID | int         | YES  | UNI | NULL    |       |
+| Player_3_IGN          | varchar(40) | YES  | UNI | NULL    |       |
+| Player_3_Character_ID | int         | YES  | UNI | NULL    |       |
+| Player_4_IGN          | varchar(40) | YES  | UNI | NULL    |       |
+| Player_4_Character_ID | int         | YES  | UNI | NULL    |       |
+| Player_5_IGN          | varchar(40) | YES  | UNI | NULL    |       |
+| Player_5_Character_ID | int         | YES  | UNI | NULL    |       |
+
+###### 13 rows in set (0.00 sec)
+
+## ALTERING TABLE BY DROPING THE PRIMARY KEY
+
+```sql
+ALTER TABLE Registration_Form DROP PRIMARY KEY;
+```
+
+###### Query OK, 5 rows affected (0.34 sec)
+######  Records: 5  Duplicates: 0  Warnings: 0
+
+## ALTERING TABLE BY MODIFYING CLAN_NAME AS NOT NULL CONSTRAINT
+
+```sql
+ALTER TABLE Registration_Form MODIFY Clan_Name VARCHAR(50) NOT NULL;
+```
+######  Query OK, 0 rows affected (0.03 sec)
+######  Records: 0  Duplicates: 0  Warnings: 0
+
+```sql
+DESC Registration_Form;
+```
+
+
+| Field                 | Type        | Null | Key | Default | Extra |
+|:----------------------|:------------|:-----|:----|:--------|:------|
+| Email_ID              | varchar(50) | NO   | PRI | NULL    |       |
+| Clan_Name             | varchar(50) | NO   |     | NULL    |       |
+| Team_Name             | varchar(50) | YES  | UNI | NULL    |       |
+| Player_1_IGN          | varchar(40) | YES  | UNI | NULL    |       |
+| Player_1_Character_ID | int         | YES  | UNI | NULL    |       |
+| Player_2_IGN          | varchar(40) | YES  | UNI | NULL    |       |
+| Player_2_Character_ID | int         | YES  | UNI | NULL    |       |
+| Player_3_IGN          | varchar(40) | YES  | UNI | NULL    |       |
+| Player_3_Character_ID | int         | YES  | UNI | NULL    |       |
+| Player_4_IGN          | varchar(40) | YES  | UNI | NULL    |       |
+| Player_4_Character_ID | int         | YES  | UNI | NULL    |       |
+| Player_5_IGN          | varchar(40) | YES  | UNI | NULL    |       |
+| Player_5_Character_ID | int         | YES  | UNI | NULL    |       |
+
+###### 13 rows in set (0.00 sec)
+
+## ALTERING TABLE BY MODIFYING EMAIL_ID AS UNIQUE CONSTRAINT
+
+```sql
+ALTER TABLE  Registered_Users MODIFY Email_ID VARCHAR(50) UNIQUE;
+```
+###### Query OK, 0 rows affected (0.05 sec)
+###### Records: 0  Duplicates: 0  Warnings: 0
+
+## ALTERING TABLE BY ADDING FOREIGN KEY TO EMAIL_ID REFERENCING REGISTERED_USERS(EMAIL_ID)
+
+```sql
+ALTER TABLE Registration_Form ADD FOREIGN KEY (Email_ID) REFERENCES Registered_Users(Email_ID);
+```
+###### Query OK, 5 rows affected (0.20 sec)
+###### Records: 5  Duplicates: 0  Warnings: 0
+
+
+## CREATING A TABLE WHERE QUERIES CAN BE STORED 
 
 ```sql
 CREATE TABLE List_OF_Queries (S_no INT PRIMARY KEY, QUERIES VARCHAR(200));
@@ -480,6 +574,8 @@ DESC List_OF_Queries;
 | QUERIES | varchar(200) | YES  |     | NULL    |       |
 
 ###### 2 rows in set (0.00 sec)
+
+## INSERTING SOME VALUES IN THIS TABLE
 
 ```sql
 INSERT INTO List_OF_Queries VALUES (1,'Can you say which maps will be played in qualifiers');
@@ -527,12 +623,16 @@ SELECT * FROM List_OF_Queries;
 
 ###### 5 rows in set (0.00 sec)
 
+## ALTERING THIS TABLE AND ADDING AN COLUMN (EMAIL_ID)
+
 ```sql
 ALTER TABLE List_OF_Queries ADD Email_ID VARCHAR(50);
 ```
 
 Query OK, 0 rows affected (0.04 sec)
 ###### Records: 0  Duplicates: 0  Warnings: 0
+
+## ALTERING TABLE AND ADDING FOREIGN KEY TO EMAIL_ID REFERENCE REGESTER_USERS(EMAIL_ID)
 
 ```sql
 ALTER TABLE List_OF_Queries ADD FOREIGN KEY (Email_ID) REFERENCES Registered_Users(Email_ID);
@@ -554,6 +654,8 @@ DESC List_OF_Queries;
 | Email_ID | varchar(50)  | YES  | MUL | NULL    |       |
 
 3 rows in set (0.01 sec)
+
+## ALTERING THIS TABLE AND SORTING ROWS 
 
 ```sql
 ALTER TABLE List_OF_Queries MODIFY QUERIES varchar(200) AFTER Email_ID;
@@ -589,6 +691,8 @@ SELECT * FROM List_OF_Queries;
 |    5 | NULL     | Will you provide headphones in finals?                                   |
 
 ###### 5 rows in set (0.00 sec)
+
+## UPADTING S_NO IN THIS TABLE
 
 ```sql
 UPDATE List_OF_Queries SET Email_ID = 'rishijeeva13@gmail.com' WHERE S_no = 1;
@@ -639,6 +743,7 @@ SELECT * FROM List_OF_Queries;
 
 ###### 5 rows in set (0.00 sec)
 
+## CREATING A TABLE FOR STORING HIGHLIGHTS
 
 ```sql
 CREATE TABLE Add_Highlights (S_no INT PRIMARY KEY , Video_URL VARCHAR(100) , Description TEXT(500) );
@@ -672,6 +777,8 @@ DESC Add_Highlights;
 | Description | text         | YES  |     | NULL    |       |
 
 ###### 3 rows in set (0.00 sec)
+
+## INSERTING SOME VALUES IN THIS TABLE
 
 ```sql
 INSERT INTO Add_Highlights VALUES (1,'https://www.youtube.com/embed/xyyAiRkABpk',' An 18 year under dog player from tamilnadu improving his skills by grinding.');
@@ -718,12 +825,15 @@ SELECT * FROM Add_Highlights;
 
 ###### 4 rows in set (0.00 sec)
 
+## ALTERING THIS TABLE BY RENAMING IT
+
 ```sql
 ALTER TABLE Add_Highlights RENAME TO Added_Highlights;
 ```
 
 ###### Query OK, 0 rows affected (0.03 sec)
 
+## CREATING A TABLE FOR CONTACT_US FOR THE VALUES CAN BE STORED
 
 ```sql
 CREATE TABLE Contact_US (Name VARCHAR(50) , Email_ID VARCHAR(50) , Contact_NO INT(10) , Messages TEXT);
@@ -762,6 +872,8 @@ DESC Contact_US;
 
 ###### 4 rows in set (0.00 sec)
 
+## ALTERING AND MODIFYING THIS TABLE AND MAKING ALL THIS FILED AS NOT NULL CONSTRAINT
+
 ```sql
 ALTER TABLE Contact_US MODIFY Name VARCHAR(50) NOT NULL;
 ```
@@ -796,6 +908,8 @@ ALTER TABLE Contact_US MODIFY Contact_NO BIGINT(10) NOT NULL;
 
 ###### Query OK, 0 rows affected, 1 warning (0.11 sec)
 ###### Records: 0  Duplicates: 0  Warnings: 1
+
+## INSERTING SOME VALUES IN THIS TABLE 
 
 ```sql
 INSERT INTO Contact_US VALUES ('Rishi','rishijeeva13@gmail.com',6381950080,'This website is really good and i particularly loved that esports page but i expecting more in that like images and videos');
@@ -843,10 +957,39 @@ SELECT * FROM Contact_US;
 
 ###### 5 rows in set (0.01 sec)
 
+## CREATING A BASE TABLE AS NEWS WHERE THE SUB-DIVISION COME UNDER THIS 
 
 ```sql
 CREATE TABLE NEWS (ID VARCHAR(50) PRIMARY KEY , TOPICS VARCHAR(50)NOT NULL );
 ```
+
+```sql
+SHOW TABLES;
+```
+
+| Tables_in_Pubg_Tournament_App |
+|:------------------------------|
+| Added_Highlights              |
+| Contact_US                    |
+| List_OF_Queries               |
+| NEWS                          |                       
+| Registered_Users              |
+| Registration_Form             |
+| UC_Purchased                  |
+
+###### 8 rows in set (0.00 sec)
+
+```sql
+DESC NEWS;
+```
+
+
+| Field  | Type        | Null | Key | Default | Extra |
+|:-------|:------------|:-----|:----|:--------|:------|
+| ID     | varchar(50) | NO   | PRI | NULL    |       |
+| TOPICS | varchar(50) | NO   |     | NULL    |       |
+
+## INSERTING THE VALUES LIKE N1- NOTICE1 , A1- ACHIEVEMENTS1 , E1- EVENTS 
 
 ###### Query OK, 0 rows affected (0.04 sec)
 
@@ -895,33 +1038,7 @@ INSERT INTO NEWS VALUES ('E3','Event');
 ```
 ###### Query OK, 1 row affected (0.01 sec)
 
-```sql
-SHOW TABLES;
-```
-
-
-| Tables_in_Pubg_Tournament_App |
-|:------------------------------|
-| Added_Highlights              |
-| Contact_US                    |
-| List_OF_Queries               |
-| NEWS                          |                       
-| Registered_Users              |
-| Registration_Form             |
-| UC_Purchased                  |
-
-###### 8 rows in set (0.00 sec)
-
-```sql
-DESC NEWS;
-```
-
-
-| Field  | Type        | Null | Key | Default | Extra |
-|:-------|:------------|:-----|:----|:--------|:------|
-| ID     | varchar(50) | NO   | PRI | NULL    |       |
-| TOPICS | varchar(50) | NO   |     | NULL    |       |
-
+`
 ###### 2 rows in set (0.00 sec)
 
 ```sql
@@ -943,6 +1060,8 @@ SELECT * FROM NEWS;
 
 
 ###### 9 rows in set (0.00 sec)
+
+## CREATING A SUB-DIVISION TABLE FOR NEWS CALLED NOTICES 
 
 ```sql
 CREATE TABLE Notices (ID VARCHAR(50) PRIMARY KEY , Heading VARCHAR(100) NOT NULL , Description VARCHAR(500), FOREIGN KEY(ID) REFERENCES NEWS(ID));
@@ -980,6 +1099,8 @@ DESC Notices;
 
 ###### 3 rows in set (0.00 sec)
 
+## INSERTING SOME NOTICES IN THIS TABLE
+
 ```sql
 INSERT INTO Notices VALUES ('N1','Virus Infection Mode Taken Down','UPDATED : Dec 9, 15:17PM] Virus Infection Mode has been taken down temporarily. Dear BATTLEGROUNDS MOBILE INDIA fansWe have identified an issue when playing Virus Infection Mode, and will take down the mode temporarily at Dec 9, 14:50 PM');
 ```
@@ -1010,6 +1131,8 @@ SELECT * FROM Notices;
 | N3 | Data Transfer Closeout          | In order to ensure a more smooth gameplay for players who had used PUBG MOBILE Normdic Map: Livik ("Prior App") before, BATTLEGROUNDS MOBILE INDIA ("New App") will transfer some of the data from the Prior App account to the New App.      |
 
 ###### 3 rows in set (0.00 sec)
+
+## CREATING A SUB-DIVISION TABLE FOR NEWS CALLED ACHIEVEMENTS 
 
 ```sql
 CREATE TABLE Achievements (ID VARCHAR(50) PRIMARY KEY , Heading VARCHAR(50) NOT NULL , Image_URL VARCHAR(100) NOT NULL , Description VARCHAR(500) NOT NULL , FOREIGN KEY (ID) REFERENCES NEWS(ID));
@@ -1047,6 +1170,8 @@ DESC Achievements;
 
 ###### 4 rows in set (0.00 sec)
 
+## INSERTING SOME ACHIEVEMENTS IN THIS TABLE
+
 ```sql
 INSERT INTO Achievements VALUES ('A1','RIVALS TOURNAMENT','http://127.0.0.1:5500/assets/images/rivals_top3.jpg','PUBG Mobile Rivals Cup is a new inter-country tournament announced by the officials which will feature teams from Korea and Japan. This will be the final leg for the qualification of Tencent PUBG Mobile Global Championship 2021 scheduled to commence from 30th November,2021.');
 ```
@@ -1083,6 +1208,8 @@ SELECT * FROM Achievements;
 
 ###### 3 rows in set (0.00 sec)
 
+## CREATING A SUB-DIVISION TABLE FOR NEWS CALLED EVENTS
+
 ```sql
 CREATE TABLE Events (ID VARCHAR(50) PRIMARY KEY , Image_URL VARCHAR(100) NOT NULL , Event_Name VARCHAR(30) NOT NULL, FOREIGN KEY (ID) REFERENCES NEWS (ID)) ;
 ```
@@ -1101,6 +1228,8 @@ DESC Events;
 ###### 3 rows in set (0.01 sec)
 
 ###### Query OK, 0 rows affected (0.05 sec)
+
+## INSERTING SOME ACHIEVEMENTS IN THIS TABLE
 
 ```sql
 INSERT INTO Events VALUES('E1','http://127.0.0.1:5500/assets/images/pmco.jpg','PMCO');
@@ -1150,90 +1279,11 @@ UPDATE Events SET Event_Name = 'BGIS-BATTLEGROUND INDIA SERIES' WHERE ID = 'E3';
 
 ###### 3 rows in set (0.00 sec)
 
-```sql
-DESC Registration_Form;
-```
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------
 
-
-| Field                 | Type        | Null | Key | Default | Extra |
-|:----------------------|:------------|:-----|:----|:--------|:------|
-| Email_ID              | varchar(50) | YES  | UNI | NULL    |       |
-| Clan_Name             | varchar(50) | NO   | PRI | NULL    |       |
-| Team_Name             | varchar(50) | YES  | UNI | NULL    |       |
-| Player_1_IGN          | varchar(40) | YES  | UNI | NULL    |       |
-| Player_1_Character_ID | int         | YES  | UNI | NULL    |       |
-| Player_2_IGN          | varchar(40) | YES  | UNI | NULL    |       |
-| Player_2_Character_ID | int         | YES  | UNI | NULL    |       |
-| Player_3_IGN          | varchar(40) | YES  | UNI | NULL    |       |
-| Player_3_Character_ID | int         | YES  | UNI | NULL    |       |
-| Player_4_IGN          | varchar(40) | YES  | UNI | NULL    |       |
-| Player_4_Character_ID | int         | YES  | UNI | NULL    |       |
-| Player_5_IGN          | varchar(40) | YES  | UNI | NULL    |       |
-| Player_5_Character_ID | int         | YES  | UNI | NULL    |       |
-
-###### 13 rows in set (0.00 sec)
-
-```sql
-ALTER TABLE Registration_Form DROP PRIMARY KEY;
-```
-
-Query OK, 5 rows affected (0.34 sec)
-######  Records: 5  Duplicates: 0  Warnings: 0
-
-```sql
-ALTER TABLE Registration_Form MODIFY Clan_Name VARCHAR(50) NOT NULL;
-```
-######  Query OK, 0 rows affected (0.03 sec)
-######  Records: 0  Duplicates: 0  Warnings: 0
-
-```sql
-DESC Registration_Form;
-```
-
-
-| Field                 | Type        | Null | Key | Default | Extra |
-|:----------------------|:------------|:-----|:----|:--------|:------|
-| Email_ID              | varchar(50) | NO   | PRI | NULL    |       |
-| Clan_Name             | varchar(50) | NO   |     | NULL    |       |
-| Team_Name             | varchar(50) | YES  | UNI | NULL    |       |
-| Player_1_IGN          | varchar(40) | YES  | UNI | NULL    |       |
-| Player_1_Character_ID | int         | YES  | UNI | NULL    |       |
-| Player_2_IGN          | varchar(40) | YES  | UNI | NULL    |       |
-| Player_2_Character_ID | int         | YES  | UNI | NULL    |       |
-| Player_3_IGN          | varchar(40) | YES  | UNI | NULL    |       |
-| Player_3_Character_ID | int         | YES  | UNI | NULL    |       |
-| Player_4_IGN          | varchar(40) | YES  | UNI | NULL    |       |
-| Player_4_Character_ID | int         | YES  | UNI | NULL    |       |
-| Player_5_IGN          | varchar(40) | YES  | UNI | NULL    |       |
-| Player_5_Character_ID | int         | YES  | UNI | NULL    |       |
-
-###### 13 rows in set (0.00 sec)
-
-``sql
-ALTER TABLE  Registered_Users MODIFY Email_ID VARCHAR(50) UNIQUE;
-```
-###### Query OK, 0 rows affected (0.05 sec)
-###### Records: 0  Duplicates: 0  Warnings: 0
-
-```sql
-ALTER TABLE Registration_Form ADD FOREIGN KEY (Email_ID) REFERENCES Registered_Users(Email_ID);
-```
-###### Query OK, 5 rows affected (0.20 sec)
-###### Records: 5  Duplicates: 0  Warnings: 0
-
-```sql
-DESC Registered_Users;
-```
-
-
-| Field    | Type        | Null | Key | Default | Extra          |
-|:---------|:------------|:-----|:----|:--------|:---------------|
-| S_no     | int         | NO   | PRI | NULL    | auto_increment |
-| Email_ID | varchar(50) | YES  | UNI | NULL    |                |
-| User_ID  | int         | YES  |     | NULL    |                |
-| Password | varchar(20) | YES  |     | NULL    |                |
-
-###### 4 rows in set (0.01 sec)
+## CREATING A TABLE FOR FOR STORING REVIEWS FROM USERS
 
 ```sql
 CREATE TABLE Review (S_no INT , User_ID INT(8) PRIMARY KEY , Email_ID VARCHAR(50) UNIQUE , Feedbacks VARCHAR(50) NOT NULL );
@@ -1275,11 +1325,15 @@ DESC Review;
 
 ###### 4 rows in set (0.01 sec)
 
+## INSERTING SOME REVIEWS IN THIS TABLE  
+
 ```sql
 INSERT INTO Review VALUES (1,75849574,'rishijeeva13@gmail.com','I like this game very much');
 ```
 
 ###### Query OK, 1 row affected (0.01 sec)
+
+## ALTERING THE TABLE BY RENAMING IT
 
 ```sql
 ALTER TABLE Review RENAME TO Reviews;
@@ -1287,12 +1341,16 @@ ALTER TABLE Review RENAME TO Reviews;
 
 ###### Query OK, 0 rows affected (0.03 sec)
 
+## ALTERING TABLE MODIFYING IT DATATYPE
+
 ```sql
 ALTER TABLE Reviews MODIFY Feedbacks VARCHAR(500) ;
 ```
 
 ###### Query OK, 1 row affected (0.12 sec)
 ###### Records: 1  Duplicates: 0  Warnings: 0
+
+## INSERTING SOME REVIEWS IN THIS TABLE  
 
 ```sql
 INSERT INTO Reviews VALUES (2,78263876,'tt134@gmail.com','Can you add timer in this game it will be more intresting');
