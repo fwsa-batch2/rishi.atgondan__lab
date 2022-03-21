@@ -1033,14 +1033,13 @@ SHOW TABLES;
 DESC Achievements;
 ```
 
-+-------------+--------------+------+-----+---------+-------+
 | Field       | Type         | Null | Key | Default | Extra |
-+-------------+--------------+------+-----+---------+-------+
+|:------------|:-------------|:-----|:----|:--------|:------|
 | ID          | varchar(50)  | NO   | PRI | NULL    |       |
 | Heading     | varchar(50)  | NO   |     | NULL    |       |
 | Image_URL   | varchar(100) | NO   |     | NULL    |       |
 | Description | varchar(500) | NO   |     | NULL    |       |
-+-------------+--------------+------+-----+---------+-------+
+
 ###### 4 rows in set (0.00 sec)
 
 ```SYNTAX
