@@ -54,5 +54,5 @@ public class calculator {
         int div = num1 / num2;
         return div;
     }
-
+    
 }

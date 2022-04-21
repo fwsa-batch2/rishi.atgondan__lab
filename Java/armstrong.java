@@ -8,11 +8,12 @@ public class armstrong {
         int number = scan.nextInt();
         scan.close();
         int original = number;
+        int length = Integer.toString(number).length();
         int temp;
         int check = 0;
         while (number > 0) {
             temp = number % 10;
-            check = check + (temp * temp * temp);
+            check = (int) (check + Math.pow(temp, length));
             number = number / 10;
         }
         if (original == check) {
