@@ -1,17 +1,22 @@
+import java.util.Scanner;
+
 public class fibonacci {
+
     public static void main(String[] args) {
-        int n1 = 0;
-        int n2 = 1;
-        System.out.println(n1);
-        System.out.println(n2);
+        int num1 = 0;
+        int num2 = 1;
+        int NextNum;
+        System.out.println("Enter the number of series");
+        Scanner scan = new Scanner(System.in);
+        int LenghtOfTheSeries = scan.nextInt();
+        scan.close();
 
-        int answer;
-
-        for (int i = 0; i <= 10; i++) {
-            answer = n1 + n2;
-            System.out.println(answer);
-            n1 = n2;
-            n2 = answer;
+        for (int i = 0; i < LenghtOfTheSeries; i++) {
+            System.out.print(num1 + "   ");
+            NextNum = num1 + num2;
+            num1 = num2;
+            num2 = NextNum;
         }
+
     }
 }

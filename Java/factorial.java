@@ -1,11 +1,17 @@
-public class factorial {
-    public static void main(String args[]) {
-        int number1 = 7;
-        int number2 = 1;
+import java.util.Scanner;
 
-        for (int i = 1; i <= number1; i++) {
-            number2 = number2 * i;
-            System.out.println(number2);
+public class factorial {
+    public static void main(String[] args) {
+        int num1 = 1;
+        System.out.println("Enter the lenght of fatorials");
+        Scanner scan = new Scanner(System.in);
+        int FactorialLenght = scan.nextInt();
+        scan.close();
+
+        for (int i = 1; i <= FactorialLenght; i++) {
+            num1 *= i;
+            System.out.print(num1 + " , ");
         }
+
     }
 }

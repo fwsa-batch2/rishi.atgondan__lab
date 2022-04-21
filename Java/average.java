@@ -1,16 +1,23 @@
+import java.util.Scanner;
+
 public class average {
+    public static void main(String[] args) {
+        int a, b, c, d, e;
+        System.out.println("ENTER 5 SUBJECTS MARK");
 
-    public static void main(String args[]) {
-        int mark1 = 100;
-        int mark2 = 50;
-        int mark3 = 60;
-        int mark4 = 85;
-        int mark5 = 45;
+        Scanner scan = new Scanner(System.in);
+        a = scan.nextInt();
+        b = scan.nextInt();
+        c = scan.nextInt();
+        d = scan.nextInt();
+        e = scan.nextInt();
+        scan.close();
 
-        int answer = mark1 + mark2 + mark3 + mark4 + mark5;
-        int answer2 = answer / 5;
-        System.out.println(answer2);
+        int sum = a + b + c + d + e;
+        System.out.println("TOTAL" + sum);
 
+        int average = sum / 5;
+        System.out.println("Average" + average);
     }
 
 }
