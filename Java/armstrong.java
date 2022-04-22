@@ -4,22 +4,22 @@ public class armstrong {
 
     public static void main(String[] args) {
         System.out.println("Enter the number");
-        Scanner scan = new Scanner(System.in);
-        int number = scan.nextInt();
-        scan.close();
-        int original = number;
-        int length = Integer.toString(number).length();
-        int temp;
+        Scanner InputValue = new Scanner(System.in);
+        int number = InputValue.nextInt();
+        InputValue.close();
+
+        int originalNumber = number;
+        int lenght = Integer.toString(number).length();
         int check = 0;
         while (number > 0) {
-            temp = number % 10;
-            check = (int) (check + Math.pow(temp, length));
+            int temp = number % 10;
+            check = (int) (check + Math.pow(temp, lenght));
             number = number / 10;
         }
-        if (original == check) {
-            System.out.println("It is an Armstrong number");
+        if (originalNumber == check) {
+            System.out.println("It is an armstrong number");
         } else {
-            System.out.println("It is not an Armstrong number");
+            System.out.println("Its is not an armstrong number");
         }
 
     }

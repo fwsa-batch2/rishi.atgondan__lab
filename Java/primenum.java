@@ -8,7 +8,7 @@ public class primenum {
         boolean isPrime = false;
         int num = inputValue / 2;
         if (inputValue == 1 | inputValue == 0) {
-            System.out.println("not a prime number");
+            System.out.println("Its neither prime nor composite");
             isPrime = true;
         } else {
             for (int i = 2; i > num; i++)
