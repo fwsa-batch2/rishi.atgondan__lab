@@ -1,17 +1,12 @@
 public class Test {
-    public static int num = 10;
+    int num = 10;
 
-    Test() {
-        num = 10;
+    public static void rishi(String[] args) {
+        System.out.println("Hello");
+
     }
 
-    public static void main(String[] ar) {
-        Test obj = new Test();
-        System.out.println(obj.num);
-        
-    }
-
-    public static void bs() {
-        num = 11;
+    void rishizz() {
+        System.out.println(num);
     }
 }
