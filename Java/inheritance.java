@@ -29,3 +29,4 @@ class son extends father{
         System.out.println("kfksdnc");
     }
 }
+                         
